@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Mini Mochis</string>
+    <string name="tab_text_1">Home</string>
+    <string name="tab_text_2">Activitats</string>
+    <string name="tab_text_3">Jocs</string>
+    <string name="tab_text_4">Opcions</string>
+</resources>
