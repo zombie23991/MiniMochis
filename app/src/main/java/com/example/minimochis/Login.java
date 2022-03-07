@@ -19,6 +19,7 @@ public class Login extends AppCompatActivity {
     private EditText etCorreuLogin, etContrassenyaLogin;
     private Button btLogin;
     private String urlApi;
+    private InterficieEndpoints serveiApi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class Login extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        InterficieEndpoints serveiApi = retrofit.create(InterficieEndpoints.class);
+        serveiApi = retrofit.create(InterficieEndpoints.class);
 
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,26 +57,26 @@ public class Login extends AppCompatActivity {
                 } else {
                     loginJugador(correu, contrassenya);
                 }
-                String username = "Holabones";
-                Call<Usuari> call = serveiApi.getUser(username);
-                call.enqueue(new Callback<Usuari>() {
-                    @Override
-                    public void onResponse(Call<Usuari> call, Response<Usuari> response) {
-                        int statusCode = response.code();
-                        Usuari usuari = response.body();
-                        Toast.makeText(Login.this, usuari.getNom_usuari(), Toast.LENGTH_SHORT).show();
-                    }
 
-                    @Override
-                    public void onFailure(Call<Usuari> call, Throwable t) {
-                        Toast.makeText(Login.this, "No es troba el servidor", Toast.LENGTH_SHORT).show();
-                    }
-                });
             }
         });
     }
 
     public void loginJugador(String correu, String contrassenya){
+        String username = "Holabones";
+        Call<Usuari> call = serveiApi.getUser(username);
+        call.enqueue(new Callback<Usuari>() {
+            @Override
+            public void onResponse(Call<Usuari> call, Response<Usuari> response) {
+                int statusCode = response.code();
+                Usuari usuari = response.body();
+                Toast.makeText(Login.this, usuari.getNom_usuari(), Toast.LENGTH_SHORT).show();
+            }
 
+            @Override
+            public void onFailure(Call<Usuari> call, Throwable t) {
+                Toast.makeText(Login.this, "No es troba el servidor", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
