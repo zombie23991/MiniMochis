@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.minimochis.Activitat;
+import com.example.minimochis.Chat;
 import com.example.minimochis.Home;
 import com.example.minimochis.Jocs;
 import com.example.minimochis.Opcions;
@@ -25,7 +26,7 @@ import kotlin.contracts.Returns;
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @StringRes
-    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2,R.string.tab_text_3, R.string.tab_text_4};
+    private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2,R.string.tab_text_3, R.string.tab_text_4, R.string.tab_text_5};
     private final Context mContext;
 
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
@@ -47,8 +48,12 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 fragment = new Jocs();
                 break;
             case 3:
+                fragment = new Chat();
+                break;
+            case 4:
                 fragment = new Opcions();
                 break;
+
         }
         return fragment;
     }
