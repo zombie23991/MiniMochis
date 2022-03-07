@@ -4,4 +4,8 @@
     <string name="tab_text_2">Activitats</string>
     <string name="tab_text_3">Jocs</string>
     <string name="tab_text_4">Opcions</string>
+    <string name="Nomusuari">Nom Usuari</string>
+    <string name="password">Password</string>
+    <string name="Email">Email</string>
+    <string name="Registrar">Registrar</string>
 </resources>
