@@ -164,6 +164,7 @@
 
 
         <TextView
+            android:id="@+id/TextRegistret"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
