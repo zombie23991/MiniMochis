@@ -2,15 +2,20 @@ package com.example.minimochis;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.util.Patterns;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+import android.util.Patterns;
 import android.widget.ImageView;
-
 import androidx.appcompat.app.AppCompatActivity;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Login extends AppCompatActivity {
     EditText etCorreuLogin, etContrassenyaLogin;
@@ -21,6 +26,7 @@ public class Login extends AppCompatActivity {
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login);
@@ -54,8 +60,18 @@ public class Login extends AppCompatActivity {
             }
 
         });
+        /*setContentView(R.layout.activity_login);
 
-        btLogin = findViewById(R.id.BTLogin);
+        btLogin = findViewById(R.id.BTLogin);*/
+
+        urlApi = "http://minimochi.test/api/usuaris/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(urlApi)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        serveiApi = retrofit.create(InterficieEndpoints.class);
 
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,11 +92,26 @@ public class Login extends AppCompatActivity {
                 } else {
                     loginJugador(correu, contrassenya);
                 }
+
             }
         });
     }
 
     public void loginJugador(String correu, String contrassenya){
+        String username = "Holabones";
+        Call<Usuari> call = serveiApi.getUser(username);
+        call.enqueue(new Callback<Usuari>() {
+            @Override
+            public void onResponse(Call<Usuari> call, Response<Usuari> response) {
+                int statusCode = response.code();
+                Usuari usuari = response.body();
+                Toast.makeText(Login.this, usuari.getNom_usuari(), Toast.LENGTH_SHORT).show();
+            }
 
+            @Override
+            public void onFailure(Call<Usuari> call, Throwable t) {
+                Toast.makeText(Login.this, "No es troba el servidor", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
