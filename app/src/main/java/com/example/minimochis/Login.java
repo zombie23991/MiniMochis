@@ -99,12 +99,7 @@ public class Login extends AppCompatActivity {
 
                 /* VALIDAR LES DADES */
                 /* VALIDACIÓ CORREU ELECTRÒNIC */
-                /*if(!Patterns.EMAIL_ADDRESS.matcher(nomUsuari).matches()){
-                    etCorreuLogin.setError("El correu introduït és invàlid");
-                    etCorreuLogin.setFocusable(true);
-
-                    /* VALIDACÓ CONTRASSENYA
-                } else*/ if(contrassenya.length() < 6) {
+                if(contrassenya.length() < 6) {
                     etContrassenyaLogin.setError("La contrassenya ha de ser de 6 caracters");
                     etContrassenyaLogin.setFocusable(true);
                 } else {
@@ -116,7 +111,6 @@ public class Login extends AppCompatActivity {
     }
 
    public void loginJugador(String nomUsuari, String contrassenya){
-
         Call<Usuari> call = serveiApi.getUser(nomUsuari);
         call.enqueue(new Callback<Usuari>() {
             @Override
@@ -125,7 +119,7 @@ public class Login extends AppCompatActivity {
                 Usuari usuari = response.body();
                 Intent ferLogin = new Intent(Login.this, MainActivity.class);
                 startActivity(ferLogin);
-                Toast.makeText(Login.this, usuari.getNom_usuari(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Login.this, "Benvingut" + usuari.getNom_usuari(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
