@@ -125,7 +125,7 @@
             android:theme="@style/EditScreenTextInputLayoutStyle">
 
             <EditText
-                android:id="@+id/MailLogin"
+                android:id="@+id/PasswordLogin"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:drawableEnd="@android:drawable/ic_lock_idle_lock"

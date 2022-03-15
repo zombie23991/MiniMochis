@@ -14,34 +14,47 @@ import android.util.Patterns;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 
 public class Login extends AppCompatActivity {
-    EditText etCorreuLogin, etContrassenyaLogin;
+    EditText etNomUsuariLogin, etContrassenyaLogin;
     Button btLogin;
     ImageView imageView;
     TextView textView;
+    String urlApi;
+    InterficieEndpoints serveiApi;
     int count = 0;
-
-    //urlApi = "http://minimochi.test/api/usuaris/";
-
-    //Retrofit retrofit = new Retrofit.Builder()
-      //      .baseUrl(urlApi)
-        //    .addConverterFactory(GsonConverterFactory.create())
-          //  .build();
-
-   // serveiApi = retrofit.create(InterficieEndpoints.class);
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
+
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login);
+
         textView = findViewById(R.id.TextRegistret);
         btLogin = findViewById(R.id.BTLogin);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         imageView = findViewById(R.id.imageView);
+        etNomUsuariLogin = (EditText) findViewById(R.id.NomUsuariLogin);
+        etContrassenyaLogin = (EditText) findViewById(R.id.PasswordLogin);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        urlApi = "http://10.0.2.2:8000/api/";
+
+        Retrofit retrofit = new Retrofit.Builder()
+              .baseUrl(urlApi)
+            .addConverterFactory(GsonConverterFactory.create())
+          .build();
+
+        serveiApi = retrofit.create(InterficieEndpoints.class);
+
         imageView.setOnTouchListener(new OnSwipeTouchListener(getApplicationContext()) {
             public void onSwipeTop() {
             }
@@ -78,49 +91,49 @@ public class Login extends AppCompatActivity {
             }
         });
 
-
-
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String correu = etCorreuLogin.getText().toString();
+                String nomUsuari = etNomUsuariLogin.getText().toString();
                 String contrassenya = etContrassenyaLogin.getText().toString();
 
                 /* VALIDAR LES DADES */
                 /* VALIDACIÓ CORREU ELECTRÒNIC */
-                if(!Patterns.EMAIL_ADDRESS.matcher(correu).matches()){
+                /*if(!Patterns.EMAIL_ADDRESS.matcher(nomUsuari).matches()){
                     etCorreuLogin.setError("El correu introduït és invàlid");
                     etCorreuLogin.setFocusable(true);
 
-                    /* VALIDACÓ CONTRASSENYA */
-                } else if(contrassenya.length() < 6) {
+                    /* VALIDACÓ CONTRASSENYA
+                } else*/ if(contrassenya.length() < 6) {
                     etContrassenyaLogin.setError("La contrassenya ha de ser de 6 caracters");
                     etContrassenyaLogin.setFocusable(true);
                 } else {
-                    //loginJugador(correu, contrassenya);
+                    loginJugador(nomUsuari, contrassenya);
                 }
 
             }
         });
     }
 
-   /* public void loginJugador(String correu, String contrassenya){
-        String username = "Holabones";
-        Call<Usuari> call = serveiApi.getUser(username);
+   public void loginJugador(String nomUsuari, String contrassenya){
+
+        Call<Usuari> call = serveiApi.getUser(nomUsuari);
         call.enqueue(new Callback<Usuari>() {
             @Override
             public void onResponse(Call<Usuari> call, Response<Usuari> response) {
                 int statusCode = response.code();
                 Usuari usuari = response.body();
+                Intent ferLogin = new Intent(Login.this, MainActivity.class);
+                startActivity(ferLogin);
                 Toast.makeText(Login.this, usuari.getNom_usuari(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onFailure(Call<Usuari> call, Throwable t) {
-                Toast.makeText(Login.this, "No es troba el servidor", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Login.this, "No es troba el servidor" + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
 
-    } */
+    }
 }

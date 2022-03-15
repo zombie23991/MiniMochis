@@ -15,9 +15,9 @@ public interface InterficieEndpoints {
     @GET("usuaris/{nom_usuari}")
     Call<Usuari> getUser(@Path("nom_usuari") String nom_usuari);
 
-    @GET("group/{id}/users")
-    Call<List<Usuari>> groupList(@Path("id") int groupId, @Query("sort") String sort);
+    /*@GET("group/{id}/users")
+    Call<List<Usuari>> groupList(@Path("id") int groupId, @Query("sort") String sort);*/
 
-    @POST("users/new")
-    Call<Usuari> createUser(@Body Usuari usuari);
+    /*@POST("users/new")
+    Call<Usuari> createUser(@Body Usuari usuari);*/
 }
