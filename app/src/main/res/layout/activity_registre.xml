@@ -133,7 +133,7 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:textColor="@android:color/white"
-                android:textSize="20sp" />
+                android:textSize="21sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
