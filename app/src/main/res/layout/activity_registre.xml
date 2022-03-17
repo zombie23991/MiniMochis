@@ -130,7 +130,6 @@
                 android:drawablePadding="16dp"
                 android:fontFamily="@font/calibri"
                 android:hint="@string/Email"
-                android:inputType="textPassword"
                 android:maxLines="1"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
