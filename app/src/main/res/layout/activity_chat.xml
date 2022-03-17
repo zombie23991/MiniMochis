@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Chat">
+    tools:context=".Chat"
+    android:background="@drawable/fonshome">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/idRvChat"
@@ -16,8 +17,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="-5dp"
         android:layout_marginTop="1dp"
-        android:layout_marginEnd="-8dp"
-        android:background="#C0D3D8" />
+        android:layout_marginEnd="-8dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
