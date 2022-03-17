@@ -68,7 +68,7 @@ public class ChatRVAdapter extends RecyclerView.Adapter {
         TextView userTV;
         public UserViewHolder(@NonNull View itemView) {
             super(itemView);
-            userTV = itemView.findViewById(R.id.iaTVbot);
+            userTV = itemView.findViewById(R.id.iaTVUser);
         }
     }
 
