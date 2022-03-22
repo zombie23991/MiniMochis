@@ -50,9 +50,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
             case 3:
                 fragment = new Chat();
                 break;
-            case 4:
-                fragment = new Opcions();
-                break;
 
         }
         return fragment;
