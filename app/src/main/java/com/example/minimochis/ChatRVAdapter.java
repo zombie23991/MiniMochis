@@ -1,19 +1,38 @@
 package com.example.minimochis;
 
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.translation.TranslationRequest;
+import android.view.translation.Translator;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.mlkit.common.model.DownloadConditions;
+import com.google.mlkit.nl.translate.TranslateLanguage;
+import com.google.mlkit.nl.translate.Translation;
+import com.google.mlkit.nl.translate.TranslatorOptions;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Set;
 
 public class ChatRVAdapter extends RecyclerView.Adapter {
     private ArrayList<ChatModal> chatsArrayList;
     private Context context;
+    private String textTraduit;
 
     public ChatRVAdapter(ArrayList<ChatModal> chatsArrayList, Context context) {
         this.chatsArrayList = chatsArrayList;
@@ -40,10 +59,11 @@ public class ChatRVAdapter extends RecyclerView.Adapter {
     ChatModal chat = chatsArrayList.get(position);
     switch (chat.getSender()) {
         case "user" :
+
             ((UserViewHolder)holder).userTV.setText(chat.getMessage());
             break;
         case"bot" :
-            ((BotViewHolder)holder).BotTV.setText(chat.getMessage());
+                ((BotViewHolder)holder).BotTV.setText(chat.getMessage());
             break;
     }
 }
@@ -79,5 +99,7 @@ public class ChatRVAdapter extends RecyclerView.Adapter {
             BotTV = itemView.findViewById(R.id.iaTVbot);
         }
     }
+
 }
+
 
