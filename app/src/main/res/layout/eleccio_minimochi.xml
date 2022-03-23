@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="500dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/blau_suau"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/Titol"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Minimochis"
+        android:textColor="@color/white"
+        android:textSize="34sp" />
+
+    <TextView
+        android:id="@+id/sutitol"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Els teus minimochis:"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/minimochiOne"
+            android:layout_width="85dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:scaleType="centerInside" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/minimochiTwo"
+            android:layout_width="85dp"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:scaleType="centerInside" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/minimochiThree"
+            android:layout_width="85dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:scaleType="centerInside" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/sortir"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/boto_personalitzat"
+        android:backgroundTint="#CF150F"
+        android:gravity="center"
+        android:text="Sortir"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
