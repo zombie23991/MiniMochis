@@ -14,10 +14,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import pl.droidsonroids.gif.GifImageView;
 
 public class Home extends Fragment {
-    Button eleccio_minimochi, options;
+    FloatingActionButton eleccio_minimochi, options;
     GifImageView minimochji;
 
     int mini = 2;
@@ -73,7 +75,7 @@ public class Home extends Fragment {
     }
 
     private void Options(){
-        Button sortir;
+        FloatingActionButton sortir;
         GifImageView minimochiOne, minimochiTwo, minimochiThree;
 
         miDialog.setContentView(R.layout.eleccio_minimochi);

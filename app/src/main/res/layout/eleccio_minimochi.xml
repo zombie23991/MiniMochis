@@ -60,14 +60,15 @@
 
     </LinearLayout>
 
-    <Button
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/sortir"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/boto_personalitzat"
-        android:backgroundTint="#CF150F"
+        android:backgroundTint="@color/verd"
+        android:src="@drawable/ic_baseline_check_24"
         android:gravity="center"
         android:text="Sortir"
         android:textColor="@color/white"
