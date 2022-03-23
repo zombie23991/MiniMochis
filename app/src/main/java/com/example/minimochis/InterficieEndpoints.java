@@ -12,12 +12,12 @@ import retrofit2.http.Query;
 public interface InterficieEndpoints {
     // Request method and URL specified in the annotation
 
+    @GET("usuaris")
+    Call<List<Usuari>> getLlistaUsuaris();
+
     @GET("usuaris/{nom_usuari}")
     Call<Usuari> getUser(@Path("nom_usuari") String nom_usuari);
 
-    /*@GET("group/{id}/users")
-    Call<List<Usuari>> groupList(@Path("id") int groupId, @Query("sort") String sort);*/
-
-    /*@POST("users/new")
-    Call<Usuari> createUser(@Body Usuari usuari);*/
+    @POST("usuaris")
+    Call<Usuari> createUser(@Body Usuari usuari);
 }
