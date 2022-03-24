@@ -22,7 +22,7 @@ public class Home extends Fragment {
     FloatingActionButton eleccio_minimochi, options;
     GifImageView minimochji;
 
-    int mini = 2;
+    public personatge peronatge = new personatge (0);
 
     //Dialog per obrir
     Dialog miDialog;
@@ -47,7 +47,7 @@ public class Home extends Fragment {
         miDialog = new Dialog(getActivity());
 
         //posem minimochi preseleccionat
-        minimochji.setImageResource(R.drawable.minimochirosa);
+        //minimochji.setImageResource(R.drawable.minimochirosa);
 
         //Quan presonas al minimochi
         minimochji.setOnClickListener(new  View.OnClickListener(){
@@ -56,6 +56,11 @@ public class Home extends Fragment {
                 dance();
             }
         });
+
+        //Si el usuari no te seleccionat minimochi
+        if (peronatge.getEleccio() == 0){
+            ElegirMinimochi();
+        }
 
         //Intent de fragment de botons (Boto de opcions i eleccio de minimochi)
         options.setOnClickListener(new  View.OnClickListener(){
@@ -68,13 +73,13 @@ public class Home extends Fragment {
         eleccio_minimochi.setOnClickListener(new  View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Options();
+                ElegirMinimochi();
             }
         });
 
     }
 
-    private void Options(){
+    private void ElegirMinimochi(){
         FloatingActionButton sortir;
         GifImageView minimochiOne, minimochiTwo, minimochiThree;
 
@@ -96,11 +101,11 @@ public class Home extends Fragment {
         minimochiThree.setImageResource(R.drawable.minimochiblau);
 
         //Per poder veure quin minimochi tenim seleccionat
-        if(mini == 1){
+        if(peronatge.getEleccio() == 1){
             minimochiOne.setBackgroundResource(R.drawable.boto_personalitzat);
-        } else if (mini == 2){
+        } else if (peronatge.getEleccio()== 2){
             minimochiTwo.setBackgroundResource(R.drawable.boto_personalitzat);
-        } else if (mini == 3){
+        } else if (peronatge.getEleccio() == 3){
             minimochiThree.setBackgroundResource(R.drawable.boto_personalitzat);
         }
         //Boto per sortir del dialog
@@ -119,7 +124,7 @@ public class Home extends Fragment {
                 minimochiOne.setBackgroundResource(R.drawable.boto_personalitzat);
                 minimochiTwo.setBackgroundResource(0);
                 minimochiThree.setBackgroundResource(0);
-                mini = 1;
+                peronatge.setEleccio(1);
             }
         });
 
@@ -130,7 +135,7 @@ public class Home extends Fragment {
                 minimochiOne.setBackgroundResource(0);
                 minimochiTwo.setBackgroundResource(R.drawable.boto_personalitzat);
                 minimochiThree.setBackgroundResource(0);
-                mini = 2;
+                peronatge.setEleccio(2);
             }
         });
 
@@ -141,7 +146,7 @@ public class Home extends Fragment {
                 minimochiOne.setBackgroundResource(0);
                 minimochiTwo.setBackgroundResource(0);
                 minimochiThree.setBackgroundResource(R.drawable.boto_personalitzat);
-                mini = 3;
+                peronatge.setEleccio(3);
             }
         });
 
@@ -149,7 +154,7 @@ public class Home extends Fragment {
     }
 
     private void dance(){
-        if(mini == 1){
+        if(peronatge.getEleccio() == 1){
             minimochji.setImageResource(R.drawable.minimochiblancdance);
 
             new CountDownTimer( 3000, 50 ) {
@@ -161,7 +166,7 @@ public class Home extends Fragment {
                     minimochji.setImageResource(R.drawable.minimochiblanc);
                 }
             }.start();
-        } else if (mini == 2){
+        } else if (peronatge.getEleccio() == 2){
             minimochji.setImageResource(R.drawable.minimochirosadance);
 
             new CountDownTimer( 3000, 50 ) {
@@ -173,7 +178,7 @@ public class Home extends Fragment {
                     minimochji.setImageResource(R.drawable.minimochirosa);
                 }
             }.start();
-        } else if (mini == 3){
+        } else if (peronatge.getEleccio() == 3){
             minimochji.setImageResource(R.drawable.minimochiblaudance);
 
             new CountDownTimer( 3000, 50 ) {
