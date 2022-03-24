@@ -17,15 +17,18 @@
             android:name=".Registre"
             android:exported="true" />
         <activity
+            android:name=".Opcions"
+            android:exported="true" />
+        <activity
             android:name=".Chat"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.MiniMochis.NoActionBar"/>
         <activity
-            android:name=".Login"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.MiniMochis.NoActionBar"/>
+                android:name=".Login"
+                android:exported="true"
+                android:label="@string/app_name"
+                android:theme="@style/Theme.MiniMochis.NoActionBar"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
