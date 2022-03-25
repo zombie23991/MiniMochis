@@ -19,6 +19,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
+import pl.droidsonroids.gif.GifImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -34,6 +35,10 @@ public class Chat extends Fragment {
     private final String USER_KEY = "user";
     private ArrayList<ChatModal>chatModalArrayList;
     private ChatRVAdapter chatRVAdapter;
+    GifImageView gifProta;
+
+    //per ensenyar minimochi
+    public personatge peronatge = new personatge (1);
 
     @Nullable
     @Override
@@ -53,6 +58,19 @@ public class Chat extends Fragment {
         LinearLayoutManager manager = new LinearLayoutManager(chatRV.getContext());
         chatRV.setLayoutManager(manager);
         chatRV.setAdapter(chatRVAdapter);
+        //GIF
+        gifProta = getView().findViewById(R.id.gifProta);
+
+        //pposar imatge a personatge
+        if(peronatge.getEleccio() == 1){
+            gifProta.setImageResource(R.drawable.minimochiblanc);
+        }else if(peronatge.getEleccio() == 2){
+            gifProta.setImageResource(R.drawable.minimochirosa);
+        }else if(peronatge.getEleccio() == 3){
+            gifProta.setImageResource(R.drawable.minimochiblau);
+        }
+
+
 
         sendMsgFAB.setOnClickListener(new View.OnClickListener() {
             @Override
