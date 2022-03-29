@@ -59,16 +59,17 @@ public class Chat extends Fragment {
         chatRV.setLayoutManager(manager);
         chatRV.setAdapter(chatRVAdapter);
         //GIF
-        gifProta = getView().findViewById(R.id.gifProta);
+        /*gifProta = getView().findViewById(R.id.gifProta);
+        gifProta.setImageResource(R.drawable.minimochirosa);*/
 
         //pposar imatge a personatge
-        if(peronatge.getEleccio() == 1){
+        /*if(peronatge.getEleccio() == 1){
             gifProta.setImageResource(R.drawable.minimochiblanc);
         }else if(peronatge.getEleccio() == 2){
             gifProta.setImageResource(R.drawable.minimochirosa);
         }else if(peronatge.getEleccio() == 3){
             gifProta.setImageResource(R.drawable.minimochiblau);
-        }
+        }*/
 
 
 
