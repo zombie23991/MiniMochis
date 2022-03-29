@@ -15,6 +15,9 @@ import android.util.Patterns;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -100,9 +103,9 @@ public class Registre extends AppCompatActivity {
                 String correu = etCorreuRegistre.getText().toString();
                 String contrassenya = etContrassenyaRegistre.getText().toString();
 
+                comprovarInfoJugador(nomUsuari, correu, contrassenya);
 
                 /* VALIDAR LES DADES */
-                /* VALIDACIÓ CONTRASSENYA */
                 if (!validarFormatEmail(correu)) {
                     etCorreuRegistre.setError("El correu introduït és invàlid");
                     etCorreuRegistre.setFocusable(true);
@@ -110,18 +113,15 @@ public class Registre extends AppCompatActivity {
                     etContrassenyaRegistre.setError("La contrassenya ha de ser de 6 caracters");
                     etContrassenyaRegistre.setFocusable(true);
                 } else {
-                    if(comprovarInfoJugador(nomUsuari, correu, contrassenya)) {
+                    boolean existeix = comprovarInfoJugador(nomUsuari, correu, contrassenya);
+                    if(existeix) {
                         etNomUsuariRegistre.setText(null);
                         etCorreuRegistre.setText(null);
                         etContrassenyaRegistre.setText(null);
-                    } else if (!comprovarInfoJugador(nomUsuari, correu, contrassenya)){
+                    } else {
                         registrarJugador(nomUsuari, correu, contrassenya);
                     }
-
                 }
-
-
-
             }
         });
     }
@@ -142,7 +142,6 @@ public class Registre extends AppCompatActivity {
         cridaRegistre.enqueue(new Callback<Usuari>() {
             @Override
             public void onResponse(Call<Usuari> call, Response<Usuari> response) {
-                int statusCode = response.code();
                 Usuari usuari = response.body();
                 Toast.makeText(Registre.this, "L'usuari " + usuari.getNomUsuari() + " s'ha creat correctament. Benvingut!", Toast.LENGTH_LONG).show();
                 Intent ferRegistre = new Intent(Registre.this, Login.class);
@@ -157,26 +156,37 @@ public class Registre extends AppCompatActivity {
     }
 
     public boolean comprovarInfoJugador(String nomUsuari, String correu, String contrassenya){
-        existeix = false;
+
         Call<List<Usuari>> cridaComprovarInfoJugador = clientApi.connectarApi().getLlistaUsuaris();
 
         cridaComprovarInfoJugador.enqueue(new Callback<List<Usuari>>() {
             @Override
             public void onResponse(Call<List<Usuari>> call, Response<List<Usuari>> response) {
-
                 List<Usuari> usuaris = response.body();
+
                 for(int pos = 0; pos < usuaris.size(); pos++) {
-                    if(nomUsuari.equals(usuaris.get(pos).getNomUsuari())){
+                    String nomUsuariExistent = usuaris.get(pos).getNomUsuari();
+                    String correuExistent = usuaris.get(pos).getCorreu();
+                    String contrassenyaExistent = usuaris.get(pos).getContrassenya();
+
+                    if(nomUsuari.equals(nomUsuariExistent)){
                         existeix = true;
                         Toast.makeText(Registre.this, "El nom d'usuari introduït ja existeix", Toast.LENGTH_SHORT).show();
-                    } else if (correu.equals(usuaris.get(pos).getCorreu())) {
+                    } else if (correu.equals(correuExistent)) {
                         existeix = true;
                         Toast.makeText(Registre.this, "El correu introduït ja existeix", Toast.LENGTH_SHORT).show();
-                    } else if (contrassenya.equals(usuaris.get(pos).getContrassenya())){
+                    } else if (contrassenya.equals(contrassenyaExistent)){
                         existeix = true;
                         Toast.makeText(Registre.this, "La contrassenya introduïda ja existeix", Toast.LENGTH_SHORT).show();
                     }
+
+                    //Exemple snackbar
+                    /*Snackbar.make(findViewById(R.id.textView),
+                            "El nom d'usuari introduït ja existeix",
+                            BaseTransientBottomBar.LENGTH_LONG).show(); */
                 }
+
+
             }
 
             @Override
