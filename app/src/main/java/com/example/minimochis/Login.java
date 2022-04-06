@@ -98,7 +98,7 @@ public class Login extends AppCompatActivity {
                 /* VALIDAR LES DADES */
                 /* VALIDACIÓ CONTRASSENYA */
                 if(contrassenya.length() < 6) {
-                    etContrassenyaLogin.setError("La contrassenya ha de ser de 6 caracters");
+                    Toast.makeText(Login.this, "La contrassenya ha de ser de 6 caracters", Toast.LENGTH_LONG).show();
                     etContrassenyaLogin.setFocusable(true);
                 } else {
                     loginJugador(nomUsuari, contrassenya);

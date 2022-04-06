@@ -1,5 +1,7 @@
 package com.example.minimochis;
 
+import static android.content.ContentValues.TAG;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -35,7 +37,6 @@ public class Registre extends AppCompatActivity {
     ImageView imageView;
     TextView portarLogin;
 
-    boolean existeix = false;
     int count = 0;
 
     InterficieEndpoints serveiApi;
@@ -91,7 +92,7 @@ public class Registre extends AppCompatActivity {
         portarLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Registre.this, Registre.class);
+                Intent i = new Intent(Registre.this, Login.class);
                 startActivity(i);
             }
         });
@@ -103,24 +104,15 @@ public class Registre extends AppCompatActivity {
                 String correu = etCorreuRegistre.getText().toString();
                 String contrassenya = etContrassenyaRegistre.getText().toString();
 
-                comprovarInfoJugador(nomUsuari, correu, contrassenya);
-
                 /* VALIDAR LES DADES */
                 if (!validarFormatEmail(correu)) {
-                    etCorreuRegistre.setError("El correu introduït és invàlid");
+                    Toast.makeText(Registre.this, "El correu introduït és invàlid", Toast.LENGTH_LONG).show();
                     etCorreuRegistre.setFocusable(true);
                 } else if(contrassenya.length() < 6) {
-                    etContrassenyaRegistre.setError("La contrassenya ha de ser de 6 caracters");
+                    Toast.makeText(Registre.this, "La contrassenya ha de ser de 6 caràcters", Toast.LENGTH_LONG).show();
                     etContrassenyaRegistre.setFocusable(true);
                 } else {
-                    boolean existeix = comprovarInfoJugador(nomUsuari, correu, contrassenya);
-                    if(existeix) {
-                        etNomUsuariRegistre.setText(null);
-                        etCorreuRegistre.setText(null);
-                        etContrassenyaRegistre.setText(null);
-                    } else {
-                        registrarJugador(nomUsuari, correu, contrassenya);
-                    }
+                    comprovarInfoJugador(nomUsuari, correu, contrassenya);
                 }
             }
         });
@@ -135,7 +127,6 @@ public class Registre extends AppCompatActivity {
     }
 
     public void registrarJugador(String nomUsuari, String correu, String contrassenya){
-
         Usuari usuariNou = new Usuari(nomUsuari, correu, contrassenya);
 
         Call<Usuari> cridaRegistre = clientApi.connectarApi().createUser(usuariNou);
@@ -143,9 +134,11 @@ public class Registre extends AppCompatActivity {
             @Override
             public void onResponse(Call<Usuari> call, Response<Usuari> response) {
                 Usuari usuari = response.body();
-                Toast.makeText(Registre.this, "L'usuari " + usuari.getNomUsuari() + " s'ha creat correctament. Benvingut!", Toast.LENGTH_LONG).show();
-                Intent ferRegistre = new Intent(Registre.this, Login.class);
-                startActivity(ferRegistre);
+                if(usuari != null){
+                    Toast.makeText(Registre.this, "L'usuari " + usuari.getNomUsuari() + " s'ha creat correctament. Benvingut!", Toast.LENGTH_LONG).show();
+                    Intent ferRegistre = new Intent(Registre.this, Login.class);
+                    startActivity(ferRegistre);
+                }
             }
 
             @Override
@@ -155,8 +148,7 @@ public class Registre extends AppCompatActivity {
         });
     }
 
-    public boolean comprovarInfoJugador(String nomUsuari, String correu, String contrassenya){
-
+    public void comprovarInfoJugador(String nomUsuari, String correu, String contrassenya){
         Call<List<Usuari>> cridaComprovarInfoJugador = clientApi.connectarApi().getLlistaUsuaris();
 
         cridaComprovarInfoJugador.enqueue(new Callback<List<Usuari>>() {
@@ -168,18 +160,26 @@ public class Registre extends AppCompatActivity {
                     String nomUsuariExistent = usuaris.get(pos).getNomUsuari();
                     String correuExistent = usuaris.get(pos).getCorreu();
                     String contrassenyaExistent = usuaris.get(pos).getContrassenya();
-
+                    boolean existeix = false;
+                    Log.d(TAG, "1" + existeix);
                     if(nomUsuari.equals(nomUsuariExistent)){
                         existeix = true;
-                        Toast.makeText(Registre.this, "El nom d'usuari introduït ja existeix", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Registre.this, "El nom d'usuari introduït ja existeix", Toast.LENGTH_LONG).show();
                     } else if (correu.equals(correuExistent)) {
                         existeix = true;
-                        Toast.makeText(Registre.this, "El correu introduït ja existeix", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Registre.this, "El correu introduït ja existeix", Toast.LENGTH_LONG).show();
                     } else if (contrassenya.equals(contrassenyaExistent)){
                         existeix = true;
-                        Toast.makeText(Registre.this, "La contrassenya introduïda ja existeix", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Registre.this, "La contrassenya introduïda ja existeix", Toast.LENGTH_LONG).show();
                     }
 
+                    if(existeix) {
+                        etNomUsuariRegistre.setText(null);
+                        etCorreuRegistre.setText(null);
+                        etContrassenyaRegistre.setText(null);
+                    } else {
+                        registrarJugador(nomUsuari, correu, contrassenya);
+                    }
                     //Exemple snackbar
                     /*Snackbar.make(findViewById(R.id.textView),
                             "El nom d'usuari introduït ja existeix",
@@ -194,7 +194,5 @@ public class Registre extends AppCompatActivity {
                 Toast.makeText(Registre.this, t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
-
-        return existeix;
     }
 }
