@@ -4,9 +4,11 @@
     android:orientation="vertical"
     android:gravity="center"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/verd_suau">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/joc1"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_margin="20dp"
@@ -22,8 +24,8 @@
             <ImageView
                 android:layout_width="102dp"
                 android:layout_height="103dp"
-                android:layout_margin="15dp"
                 android:layout_gravity="center"
+                android:layout_margin="15dp"
                 android:src="@drawable/piedrapapeltijeras" />
 
             <TextView
@@ -37,11 +39,12 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/joc2"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_margin="20dp"
-        android:padding="200dp"
         android:backgroundTint="@color/blau_suau"
+        android:padding="200dp"
         app:cardCornerRadius="30dp">
 
         <LinearLayout
@@ -52,15 +55,15 @@
             <ImageView
                 android:layout_width="102dp"
                 android:layout_height="103dp"
-                android:layout_margin="15dp"
                 android:layout_gravity="center"
+                android:layout_margin="15dp"
                 android:src="@drawable/piedrapapeltijeras" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="243dp"
                 android:layout_height="match_parent"
-                android:text="Pedra Paper Tisores"
+                android:text="Memori"
                 android:textSize="32sp" />
 
         </LinearLayout>
@@ -68,11 +71,12 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/joc3"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_margin="20dp"
-        android:padding="200dp"
         android:backgroundTint="@color/blau_suau"
+        android:padding="200dp"
         app:cardCornerRadius="30dp">
 
         <LinearLayout
@@ -83,26 +87,27 @@
             <ImageView
                 android:layout_width="102dp"
                 android:layout_height="103dp"
-                android:layout_margin="15dp"
                 android:layout_gravity="center"
+                android:layout_margin="15dp"
                 android:src="@drawable/piedrapapeltijeras" />
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="240dp"
                 android:layout_height="match_parent"
-                android:text="Pedra Paper Tisores"
+                android:text="Pop it"
                 android:textSize="32sp" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/joc4"
         android:layout_width="match_parent"
         android:layout_height="120dp"
         android:layout_margin="20dp"
-        android:padding="200dp"
         android:backgroundTint="@color/blau_suau"
+        android:padding="200dp"
         app:cardCornerRadius="30dp">
 
         <LinearLayout
@@ -113,19 +118,18 @@
             <ImageView
                 android:layout_width="102dp"
                 android:layout_height="103dp"
-                android:layout_margin="15dp"
                 android:layout_gravity="center"
+                android:layout_margin="15dp"
                 android:src="@drawable/piedrapapeltijeras" />
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="238dp"
                 android:layout_height="match_parent"
-                android:text="Pedra Paper Tisores"
+                android:text="Simon"
                 android:textSize="32sp" />
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
-
 </LinearLayout>

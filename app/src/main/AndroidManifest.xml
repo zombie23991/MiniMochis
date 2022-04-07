@@ -29,11 +29,22 @@
                 android:exported="true"
                 android:label="@string/app_name"
                 android:theme="@style/Theme.MiniMochis.NoActionBar"/>
+
+
+
+            <activity
+                android:name=".Joc_PedraPaperTisora"
+                android:exported="true"
+                android:label="@string/app_name"
+                android:theme="@style/Theme.MiniMochis.NoActionBar"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.MiniMochis.NoActionBar">
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
