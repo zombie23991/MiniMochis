@@ -35,5 +35,30 @@ public class Jocs extends Fragment {
                 startActivity(intent);
             }
         });
+
+        joc2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Joc_PedraPaperTisora.class);
+                startActivity(intent);
+            }
+        });
+
+        /*joc3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Joc_PedraPaperTisora.class);
+                startActivity(intent);
+            }
+        });*/
+
+        /*joc4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Joc_PedraPaperTisora.class);
+                startActivity(intent);
+            }
+        });*/
+
     }
 }
