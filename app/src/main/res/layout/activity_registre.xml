@@ -109,7 +109,7 @@
                 android:drawableEnd="@drawable/ic_email_white_24dp"
                 android:drawablePadding="16dp"
                 android:fontFamily="@font/calibri"
-                android:hint="@string/Nomusuari"
+                android:hint="@string/Nom_Usuari"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:textColor="@android:color/white"
@@ -148,7 +148,7 @@
                 android:drawableEnd="@android:drawable/ic_lock_idle_lock"
                 android:drawablePadding="16dp"
                 android:fontFamily="@font/calibri"
-                android:hint="@string/password"
+                android:hint="@string/Password"
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:textColor="@android:color/white"
@@ -164,7 +164,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/RegistrarRegistre"
+                android:id="@+id/BTRegistre"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"

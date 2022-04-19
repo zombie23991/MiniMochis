@@ -3,8 +3,8 @@
     <string name="tab_text_1">Home</string>
     <string name="tab_text_2">Activitats</string>
     <string name="tab_text_3">Jocs</string>
-    <string name="Nomusuari">Nom Usuari</string>
-    <string name="password">Password</string>
+    <string name="Nom_Usuari">Nom Usuari</string>
+    <string name="Password">Password</string>
     <string name="Email">Email</string>
     <string name="Registrar">Registrar</string>
     <string name="tab_text_4">Chat</string>

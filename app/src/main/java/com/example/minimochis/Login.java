@@ -14,6 +14,10 @@ import android.util.Patterns;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -25,10 +29,12 @@ public class Login extends AppCompatActivity {
     EditText etNomUsuariLogin, etContrassenyaLogin;
     Button btLogin;
     ImageView imageView;
-    TextView textView;
-    String urlApi;
-    InterficieEndpoints serveiApi;
+    TextView portarRegistre;
+
     int count = 0;
+
+    InterficieEndpoints serveiApi;
+
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -38,22 +44,13 @@ public class Login extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_login);
 
-        textView = findViewById(R.id.TextRegistret);
+        portarRegistre = findViewById(R.id.TextRegistret);
         btLogin = findViewById(R.id.BTLogin);
         imageView = findViewById(R.id.imageView);
         etNomUsuariLogin = (EditText) findViewById(R.id.NomUsuariLogin);
         etContrassenyaLogin = (EditText) findViewById(R.id.PasswordLogin);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        urlApi = "http://10.0.2.2:8000/api/";
-
-        Retrofit retrofit = new Retrofit.Builder()
-              .baseUrl(urlApi)
-            .addConverterFactory(GsonConverterFactory.create())
-          .build();
-
-        serveiApi = retrofit.create(InterficieEndpoints.class);
 
         imageView.setOnTouchListener(new OnSwipeTouchListener(getApplicationContext()) {
             public void onSwipeTop() {
@@ -83,7 +80,8 @@ public class Login extends AppCompatActivity {
             }
 
         });
-        textView.setOnClickListener(new View.OnClickListener() {
+
+        portarRegistre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Login.this, Registre.class);
@@ -98,9 +96,9 @@ public class Login extends AppCompatActivity {
                 String contrassenya = etContrassenyaLogin.getText().toString();
 
                 /* VALIDAR LES DADES */
-                /* VALIDACIÓ CORREU ELECTRÒNIC */
+                /* VALIDACIÓ CONTRASSENYA */
                 if(contrassenya.length() < 6) {
-                    etContrassenyaLogin.setError("La contrassenya ha de ser de 6 caracters");
+                    Toast.makeText(Login.this, "La contrassenya ha de ser de 6 caracters", Toast.LENGTH_LONG).show();
                     etContrassenyaLogin.setFocusable(true);
                 } else {
                     loginJugador(nomUsuari, contrassenya);
@@ -111,20 +109,28 @@ public class Login extends AppCompatActivity {
     }
 
    public void loginJugador(String nomUsuari, String contrassenya){
-        Call<Usuari> call = serveiApi.getUser(nomUsuari);
-        call.enqueue(new Callback<Usuari>() {
+        Call<Usuari> cridaLogin = clientApi.connectarApi().getUser(nomUsuari);
+        cridaLogin.enqueue(new Callback<Usuari>() {
             @Override
             public void onResponse(Call<Usuari> call, Response<Usuari> response) {
-                int statusCode = response.code();
-                Usuari usuari = response.body();
-                Intent ferLogin = new Intent(Login.this, MainActivity.class);
-                startActivity(ferLogin);
-                Toast.makeText(Login.this, "Benvingut" + usuari.getNom_usuari(), Toast.LENGTH_SHORT).show();
+                if(response.isSuccessful()){
+                    Usuari usuari = response.body();
+
+                    if(usuari.getNomUsuari().equals(nomUsuari) && usuari.getContrassenya().equals(contrassenya)) {
+                        Intent ferLogin = new Intent(Login.this, MainActivity.class);
+                        startActivity(ferLogin);
+                    } else {
+                        Toast.makeText(Login.this, "El nom d'usuari o la contrassenya són incorrectes",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(Login.this, "L'usuari no existeix", Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override
             public void onFailure(Call<Usuari> call, Throwable t) {
-                Toast.makeText(Login.this, "No es troba el servidor" + t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Login.this, t.getLocalizedMessage() + " ", Toast.LENGTH_SHORT).show();
             }
         });
 
