@@ -131,7 +131,7 @@ public class Joc_PedraPaperTisora extends AppCompatActivity {
     public void Final_del_Joc() {
         if (scoreJugador == 10) {
             Toast.makeText(this, "Ganastes " + nom_jugador + ". Score: " + scoreJugador, Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(this, Login.class);
+            Intent intent = new Intent(this, Jocs.class);
             startActivity(intent);
             finish();
         } else if (scoreComputer == 10) {
