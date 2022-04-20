@@ -44,13 +44,13 @@ public class Jocs extends Fragment {
             }
         });
 
-        /*joc3.setOnClickListener(new View.OnClickListener() {
+        joc3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), Joc_PedraPaperTisora.class);
+                Intent intent = new Intent(getActivity(), popit.class);
                 startActivity(intent);
             }
-        });*/
+        });
 
         /*joc4.setOnClickListener(new View.OnClickListener() {
             @Override
