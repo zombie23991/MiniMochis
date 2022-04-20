@@ -1,7 +1,6 @@
 package com.example.minimochis.ui.main;
 
 import android.content.Context;
-import android.graphics.Path;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
@@ -9,15 +8,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.minimochis.Activitat;
 import com.example.minimochis.Chat;
 import com.example.minimochis.Home;
 import com.example.minimochis.Jocs;
-import com.example.minimochis.Opcions;
+import com.example.minimochis.MapsFragment;
 import com.example.minimochis.R;
-import com.example.minimochis.databinding.OpcionsLayoutBinding;
-
-import kotlin.contracts.Returns;
 
 /**
  * A [FragmentPagerAdapter] that returns a fragment corresponding to
@@ -42,7 +37,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 fragment = new Home();
                 break;
             case 1:
-                fragment = new Activitat();
+                fragment = new MapsFragment();
                 break;
             case 2:
                 fragment = new Jocs();
