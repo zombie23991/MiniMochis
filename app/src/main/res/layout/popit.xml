@@ -1,52 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/verd"
     tools:context=".popit">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:backgroundTint="#FF0000"
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="412dp"
+        android:layout_height="115dp"
+        android:backgroundTint="#BF250A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.912"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.224" />
+        app:layout_constraintVertical_bias="0.212"></androidx.cardview.widget.CardView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:backgroundTint="#FF0000"
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="411dp"
+        android:layout_height="104dp"
+        android:backgroundTint="#ED9004"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.224" />
+        app:layout_constraintVertical_bias="0.355"></androidx.cardview.widget.CardView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton3"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:backgroundTint="#FF0000"
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="411dp"
+        android:layout_height="104dp"
+        android:backgroundTint="#CFC012"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.224" />
+        app:layout_constraintVertical_bias="0.486">
+
+    </androidx.cardview.widget.CardView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton4"
+            android:id="@+id/red3"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:backgroundTint="#FF0000"
+            app:borderWidth="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.912"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.224" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/red2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:backgroundTint="#FF0000"
+            app:borderWidth="3dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.224" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/orange1"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:backgroundTint="#FFA500"
+        app:borderWidth="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.709"
@@ -55,10 +86,11 @@
         app:layout_constraintVertical_bias="0.357" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton5"
+        android:id="@+id/orange2"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:backgroundTint="#FFA500"
+        app:borderWidth="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.29"
@@ -67,9 +99,11 @@
         app:layout_constraintVertical_bias="0.357" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/yellow3"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:backgroundTint="#FFEA00"
+        app:borderWidth="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.912"
@@ -78,20 +112,24 @@
         app:layout_constraintVertical_bias="0.488" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/green1"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:backgroundTint="#13BC00"
+        app:borderWidth="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.29"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.63" />
+        app:layout_constraintVertical_bias="0.614" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/yellow2"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:backgroundTint="#FFEA00"
+        app:borderWidth="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -100,20 +138,24 @@
         app:layout_constraintVertical_bias="0.488" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/green2"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:backgroundTint="#13BC00"
+        app:borderWidth="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.709"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.63" />
+        app:layout_constraintVertical_bias="0.614" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/yellow1"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:backgroundTint="#FFEA00"
+        app:borderWidth="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.075"
@@ -122,36 +164,152 @@
         app:layout_constraintVertical_bias="0.488" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/blue3"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:backgroundTint="#3D5AFE"
+        app:borderWidth="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.912"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.754" />
+        app:layout_constraintVertical_bias="0.743" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/blue1"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:backgroundTint="#3D5AFE"
+        app:borderWidth="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.075"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.755" />
+        app:layout_constraintVertical_bias="0.743" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/blue2"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:backgroundTint="#3D5AFE"
+        app:borderWidth="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.754" />
+        app:layout_constraintVertical_bias="0.743" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/red1"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:backgroundTint="#FF0000"
+        app:borderWidth="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.075"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.224" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="411dp"
+        android:layout_height="104dp"
+        android:backgroundTint="#5DC308"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.617">
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="411dp"
+        android:layout_height="104dp"
+        android:backgroundTint="#1B3CF4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.749"></androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/punts"
+        android:layout_width="96dp"
+        android:layout_height="89dp"
+        android:text="0"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.081" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="314dp"
+        android:layout_height="81dp"
+        android:text="Puntuacion:"
+        android:textSize="55sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.01"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.08" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/fons"
+        android:layout_width="411dp"
+        android:layout_height="198dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/minimochiOne"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.978" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/minimochiThree"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.906"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.978" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/minimochiTwo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.978" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
