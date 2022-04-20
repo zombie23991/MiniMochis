@@ -20,4 +20,6 @@ public interface InterficieEndpoints {
 
     @POST("usuaris")
     Call<Usuari> createUser(@Body Usuari usuari);
+
+    Call<MsgModal> getMessage(String url);
 }
