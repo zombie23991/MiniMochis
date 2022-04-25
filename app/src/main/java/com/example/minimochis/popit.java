@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.Random;
+
 import pl.droidsonroids.gif.GifImageView;
 
 public class popit extends AppCompatActivity {
@@ -28,6 +30,11 @@ public class popit extends AppCompatActivity {
     MediaPlayer mp;
 
     int n = 1;
+
+    int random;
+
+    Random aleatorio = new Random(System.currentTimeMillis());
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,12 +71,20 @@ public class popit extends AppCompatActivity {
         //Gif fons
         fons = findViewById(R.id.fons);
 
+        // Producir nuevo int aleatorio entre 0 y 12
+        random = aleatorio.nextInt(13);
+
         minimochiOne.setImageResource(R.drawable.minimochirosa);
         minimochiTwo.setImageResource(R.drawable.minimochiblau);
         minimochiThree.setImageResource(R.drawable.minimochiblanc);
 
+
+
+
         //posem audio a la variable
         mp = MediaPlayer.create(this, R.raw.popit);
+        //podem aleatori al boto
+        topo();
 
         red1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -240,5 +255,48 @@ public class popit extends AppCompatActivity {
         }.start();
 
 
+    }
+
+    public void topo() {
+        if (random == 0) {
+            red1.setImageDrawable(getResources().getDrawable(R.drawable.ic_baseline_close_24));
+        } else if (random == 1){
+            red2.setImageDrawable(getResources().getDrawable(R.drawable.ic_baseline_close_24));
+        }else if (random == 2){
+            red2.setImageDrawable(getResources().getDrawable(R.drawable.ic_baseline_close_24));
+        } else if (random == 3){
+            orange1.setImageDrawable(getResources().getDrawable(R.drawable.ic_baseline_close_24));
+        } else if (random == 4){
+            orange2.setImageDrawable(getResources().getDrawable(R.drawable.ic_baseline_close_24));
+        } else if (random == 5){
+            yellow1.setImageDrawable(getResources().getDrawable(R.drawable.ic_baseline_close_24));
+        }else if (random == 6){
+            yellow2.setImageDrawable(getResources().getDrawable(R.drawable.ic_baseline_close_24));
+        }else if (random == 7){
+            yellow3.setImageDrawable(getResources().getDrawable(R.drawable.ic_baseline_close_24);
+        }else if (random == 8){
+            green1.setImageDrawable(getResources().getDrawable(R.drawable.ic_baseline_close_24));
+        }else if (random == 9){
+            green2.setImageDrawable(getResources().getDrawable(R.drawable.ic_baseline_close_24));
+        }else if (random == 10){
+            blue1.setImageDrawable(getResources().getDrawable(R.drawable.ic_baseline_close_24));
+        }else if (random == 11){
+            blue2.setImageDrawable(getResources().getDrawable(R.drawable.ic_baseline_close_24));
+        }else if (random == 12){
+            blue3.setImageDrawable(getResources().getDrawable(R.drawable.ic_baseline_close_24));
+        } else {
+            punts.setText("ERR");
+        }
+
+        // Producir nuevo int aleatorio entre 0 y 12
+        random = aleatorio.nextInt(13);
+    }
+
+    public void cert(){
+        if ( red1.getBackground() != null) {
+            dance();
+            punts.setText(""+n);
+            n++;
+        }
     }
 }

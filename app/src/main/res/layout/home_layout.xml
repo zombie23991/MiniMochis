@@ -24,14 +24,14 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/options"
-        android:src="@drawable/configuraciones"
-        android:backgroundTint="#BB8FCE"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="31dp"
         android:layout_marginEnd="35dp"
+        android:backgroundTint="#BB8FCE"
+        android:src="@drawable/configuraciones"
         android:text="Options" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
