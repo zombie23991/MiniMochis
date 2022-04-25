@@ -22,4 +22,5 @@ public interface InterficieEndpoints {
     Call<Usuari> createUser(@Body Usuari usuari);
 
     Call<MsgModal> getMessage(String url);
+
 }
