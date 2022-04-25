@@ -14,12 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.util.ArrayList;
-
-import pl.droidsonroids.gif.GifImageView;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -35,7 +31,7 @@ public class Chat extends Fragment {
     private final String USER_KEY = "user";
     private ArrayList<ChatModal>chatModalArrayList;
     private ChatRVAdapter chatRVAdapter;
-    GifImageView gifProta;
+    //GifImageView gifProta;
 
     //per ensenyar minimochi
     public personatge peronatge = new personatge (1);
