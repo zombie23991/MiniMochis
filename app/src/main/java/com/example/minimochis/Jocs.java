@@ -39,7 +39,7 @@ public class Jocs extends Fragment {
         joc2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), popit.class);
+                Intent intent = new Intent(getActivity(), MemoryGame.class);
                 startActivity(intent);
             }
         });
@@ -52,13 +52,13 @@ public class Jocs extends Fragment {
             }
         });
 
-        /*joc4.setOnClickListener(new View.OnClickListener() {
+        joc4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), Joc_PedraPaperTisora.class);
+                Intent intent = new Intent(getActivity(), simon.class);
                 startActivity(intent);
             }
-        });*/
+        });
 
     }
 }
