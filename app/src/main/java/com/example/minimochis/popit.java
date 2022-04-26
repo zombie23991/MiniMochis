@@ -273,7 +273,7 @@ public class popit extends AppCompatActivity {
         }else if (random == 6){
             yellow2.setImageDrawable(getResources().getDrawable(R.drawable.ic_baseline_close_24));
         }else if (random == 7){
-            yellow3.setImageDrawable(getResources().getDrawable(R.drawable.ic_baseline_close_24);
+            yellow3.setImageDrawable(getResources().getDrawable(R.drawable.ic_baseline_close_24));
         }else if (random == 8){
             green1.setImageDrawable(getResources().getDrawable(R.drawable.ic_baseline_close_24));
         }else if (random == 9){
@@ -297,6 +297,56 @@ public class popit extends AppCompatActivity {
             dance();
             punts.setText(""+n);
             n++;
+        }else if ( red2.getBackground() != null){
+            dance();
+            punts.setText(""+n);
+            n++;
+        }else if ( red3.getBackground() != null){
+            dance();
+            punts.setText(""+n);
+            n++;
+        } else if ( orange1.getBackground() != null){
+            dance();
+            punts.setText(""+n);
+            n++;
+        } else if ( orange2.getBackground() != null){
+            dance();
+            punts.setText(""+n);
+            n++;
+        } else if ( yellow1.getBackground() != null){
+            dance();
+            punts.setText(""+n);
+            n++;
+        }else if (yellow2.getBackground() != null){
+            dance();
+            punts.setText(""+n);
+            n++;
+        }else if (yellow3.getBackground() != null){
+            dance();
+            punts.setText(""+n);
+            n++;
+        }else if (green1.getBackground() != null){
+            dance();
+            punts.setText(""+n);
+            n++;
+        }else if (green2.getBackground() != null){
+            dance();
+            punts.setText(""+n);
+            n++;
+        }else if (blue1.getBackground() != null){
+            dance();
+            punts.setText(""+n);
+            n++;
+        }else if (blue2.getBackground() != null){
+            dance();
+            punts.setText(""+n);
+            n++;
+        }else if (blue3.getBackground() != null){
+            dance();
+            punts.setText(""+n);
+            n++;
+        } else {
+            punts.setText("ERR");
         }
     }
 }
