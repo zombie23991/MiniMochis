@@ -22,8 +22,8 @@ public class popit extends AppCompatActivity {
             yellow1, yellow2, yellow3,
             green1, green2,
             blue1, blue2, blue3;
-    //Puntuacio
-    TextView punts;
+    //Puntuacio i temps
+    TextView punts, temps;
     //minimochis
     GifImageView minimochiOne, minimochiTwo, minimochiThree, fons;
     //Audio
@@ -61,8 +61,9 @@ public class popit extends AppCompatActivity {
         blue2 = findViewById(R.id.blue2);
         blue3 = findViewById(R.id.blue3);
 
-        //Puntuacio
+        //Puntuacio i temps
         punts = findViewById(R.id.punts);
+        temps = findViewById(R.id.temps);
 
         //Gif Minimochi
         minimochiOne = findViewById(R.id.minimochiOne);
@@ -89,117 +90,145 @@ public class popit extends AppCompatActivity {
         red1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dance();
-                punts.setText(""+n);
-                n++;
+                if(random == 0){
+                    cert();
+                    punts.setText(""+n);
+                    n++;
+                }
             }
         });
 
         red2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dance();
-                punts.setText(""+n);
-                n++;
+
+                if(random == 1){
+                    cert();
+                    punts.setText(""+n);
+                    n++;
+                }
             }
         });
 
         red3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dance();
-                punts.setText(""+n);
-                n++;
+                if(random == 2){
+                    cert();
+                    punts.setText(""+n);
+                    n++;
+                }
             }
         });
 
         orange1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dance();
-                punts.setText(""+n);
-                n++;
+                if(random == 3){
+                    cert();
+                    punts.setText(""+n);
+                    n++;
+                }
             }
         });
 
         orange2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dance();
-                punts.setText(""+n);
-                n++;
+                if(random == 4){
+                    cert();
+                    punts.setText(""+n);
+                    n++;
+                }
             }
         });
 
         yellow1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dance();
-                punts.setText(""+n);
-                n++;
+                if(random == 5){
+                    cert();
+                    punts.setText(""+n);
+                    n++;
+                }
             }
         });
 
         yellow2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dance();
-                punts.setText(""+n);
-                n++;
+                if(random == 6){
+                    cert();
+                    punts.setText(""+n);
+                    n++;
+                }
             }
         });
 
         yellow3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dance();
-                punts.setText(""+n);
-                n++;
+                if(random == 7){
+                    cert();
+                    punts.setText(""+n);
+                    n++;
+                }
             }
         });
 
         green1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dance();
-                punts.setText(""+n);
-                n++;
+                if(random == 8){
+                    cert();
+                    punts.setText(""+n);
+                    n++;
+                }
             }
         });
 
         green2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dance();
-                punts.setText(""+n);
-                n++;
+                if(random == 9){
+                    cert();
+                    punts.setText(""+n);
+                    n++;
+                }
             }
         });
 
         blue1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dance();
-                punts.setText(""+n);
-                n++;
+                if(random == 10){
+                    cert();
+                    punts.setText(""+n);
+                    n++;
+                }
             }
         });
 
         blue2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dance();
-                punts.setText(""+n);
-                n++;
+                if(random == 11){
+                    cert();
+                    punts.setText(""+n);
+                    n++;
+                }
             }
         });
 
         blue3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dance();
-                punts.setText(""+n);
-                n++;
+                clean();
+                if(random == 12){
+                    cert();
+                    punts.setText(""+n);
+                    n++;
+                }
             }
         });
 
@@ -258,6 +287,12 @@ public class popit extends AppCompatActivity {
     }
 
     public void topo() {
+        // Producir nuevo int aleatorio entre 0 y 12
+        random = aleatorio.nextInt(13);
+
+        //per reiniciar temporitzador
+        timeing();
+
         if (random == 0) {
             red1.setImageDrawable(getResources().getDrawable(R.drawable.ic_baseline_close_24));
         } else if (random == 1){
@@ -287,66 +322,110 @@ public class popit extends AppCompatActivity {
         } else {
             punts.setText("ERR");
         }
-
-        // Producir nuevo int aleatorio entre 0 y 12
-        random = aleatorio.nextInt(13);
     }
 
     public void cert(){
         if ( red1.getBackground() != null) {
+            clean();
+            topo();
             dance();
-            punts.setText(""+n);
-            n++;
         }else if ( red2.getBackground() != null){
+            clean();
+            topo();
             dance();
-            punts.setText(""+n);
-            n++;
         }else if ( red3.getBackground() != null){
+            clean();
+            topo();
             dance();
-            punts.setText(""+n);
-            n++;
         } else if ( orange1.getBackground() != null){
+            clean();
+            topo();
             dance();
-            punts.setText(""+n);
-            n++;
         } else if ( orange2.getBackground() != null){
+            clean();
+            topo();
             dance();
-            punts.setText(""+n);
-            n++;
         } else if ( yellow1.getBackground() != null){
+            clean();
+            topo();
             dance();
-            punts.setText(""+n);
-            n++;
         }else if (yellow2.getBackground() != null){
+            clean();
+            topo();
             dance();
-            punts.setText(""+n);
-            n++;
         }else if (yellow3.getBackground() != null){
+            clean();
+            topo();
             dance();
-            punts.setText(""+n);
-            n++;
         }else if (green1.getBackground() != null){
+            clean();
+            topo();
             dance();
-            punts.setText(""+n);
-            n++;
         }else if (green2.getBackground() != null){
+            clean();
+            topo();
             dance();
-            punts.setText(""+n);
-            n++;
         }else if (blue1.getBackground() != null){
+            clean();
+            topo();
             dance();
-            punts.setText(""+n);
-            n++;
         }else if (blue2.getBackground() != null){
+            clean();
+            topo();
             dance();
-            punts.setText(""+n);
-            n++;
         }else if (blue3.getBackground() != null){
+            clean();
+            topo();
             dance();
-            punts.setText(""+n);
-            n++;
         } else {
             punts.setText("ERR");
         }
+
+        onFinish();
+    }
+
+    public void clean(){
+        if (random == 0) {
+            red1.setImageResource(0);
+        } else if (random == 1){
+            red2.setImageResource(0);
+        }else if (random == 2){
+            red2.setImageResource(0);
+        } else if (random == 3){
+            orange1.setImageResource(0);
+        } else if (random == 4){
+            orange2.setImageResource(0);
+        } else if (random == 5){
+            yellow1.setImageResource(0);
+        }else if (random == 6){
+            yellow2.setImageResource(0);
+        }else if (random == 7){
+            yellow3.setImageResource(0);
+        }else if (random == 8){
+            green1.setImageResource(0);
+        }else if (random == 9){
+            green2.setImageResource(0);
+        }else if (random == 10){
+            blue1.setImageResource(0);
+        }else if (random == 11){
+            blue2.setImageResource(0);
+        }else if (random == 12){
+            blue3.setImageResource(0);
+        } else {
+            punts.setText("ERR");
+        }
+    }
+
+    public void timeing(){
+        new CountDownTimer(10000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                temps.setText(" "+ millisUntilFinished / 1000);
+            }
+
+            public void onFinish() {
+                temps.setText("Fi");
+            }
+        }.start();
     }
 }
