@@ -381,7 +381,6 @@ public class popit extends AppCompatActivity {
             punts.setText("ERR");
         }
 
-        onFinish();
     }
 
     public void clean(){
@@ -428,4 +427,5 @@ public class popit extends AppCompatActivity {
             }
         }.start();
     }
+
 }
