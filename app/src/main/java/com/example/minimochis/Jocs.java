@@ -39,7 +39,7 @@ public class Jocs extends Fragment {
         joc2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), popit.class);
+                Intent intent = new Intent(getActivity(), Memory_game.class);
                 startActivity(intent);
             }
         });

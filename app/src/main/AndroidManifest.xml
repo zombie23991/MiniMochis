@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MiniMochis"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Memory_game"
+            android:exported="false" />
+        <activity
             android:name=".MemoryGame"
             android:exported="false" />
         <activity
