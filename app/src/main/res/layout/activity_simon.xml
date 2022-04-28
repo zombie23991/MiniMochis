@@ -5,47 +5,67 @@
     android:background="#3d3d3d" >
 
     <Button
-        android:id="@+id/b1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:minHeight="150dp"
+        android:id="@+id/b2"
+        android:layout_width="199dp"
+        android:layout_height="256dp"
+        android:layout_alignTop="@+id/b1"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:backgroundTint="#3D5AFE"
         android:minWidth="150dp"
-        android:text="1"
+        android:minHeight="150dp"
+        android:text="2"
         android:textSize="40sp" />
 
     <Button
         android:id="@+id/b3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_width="206dp"
+        android:layout_height="244dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        android:minHeight="150dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginBottom="133dp"
+        android:backgroundTint="#FFEA00"
         android:minWidth="150dp"
+        android:minHeight="150dp"
         android:text="3"
         android:textSize="40sp" />
 
     <Button
         android:id="@+id/b4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_width="203dp"
+        android:layout_height="245dp"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:minHeight="150dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="-1dp"
+        android:layout_marginRight="-1dp"
+        android:layout_marginBottom="132dp"
+        android:backgroundTint="#00E617"
         android:minWidth="150dp"
+        android:minHeight="150dp"
         android:text="4"
         android:textSize="40sp" />
 
     <Button
-        android:id="@+id/b2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/b1"
-        android:minHeight="150dp"
+        android:id="@+id/b1"
+        android:layout_width="207dp"
+        android:layout_height="256dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="262dp"
+        android:backgroundTint="#E13A05"
         android:minWidth="150dp"
-        android:text="2"
+        android:minHeight="150dp"
+        android:text="1"
         android:textSize="40sp" />
 
     <LinearLayout
@@ -54,39 +74,91 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="14dp"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Simón dice:"
-            android:textColor="#eee" />
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/simonInfo"
-            android:layout_width="fill_parent"
+            <TextView
+                android:id="@+id/txPunts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Puntuacion:"
+                android:textColor="#eee"
+                android:textSize="34sp" />
+
+            <TextView
+                android:id="@+id/punts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#eee"
+                android:textSize="34sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberSigned" >
+            android:orientation="horizontal">
 
-            <requestFocus />
-        </EditText>
+            <TextView
+                android:id="@+id/txNivel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nivel:"
+                android:textColor="#eee"
+                android:textSize="28sp" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Repítelo:"
-            android:textColor="#eee" />
-
-        <EditText
-            android:id="@+id/jugadorInfo"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="numberSigned" />
-
+            <TextView
+                android:id="@+id/nivell"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="#eee"
+                android:textSize="28sp" />
+        </LinearLayout>
     </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="324dp"
+        android:layout_marginTop="803dp"
+        android:background="#76FF03"
+        android:backgroundTint="#76FF03"
+        android:src="@drawable/ic_baseline_play_arrow_24">
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/volver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="27dp"
+        android:layout_marginTop="802dp"
+        android:backgroundTint="#D80606"
+        android:src="@drawable/ic_baseline_keyboard_return_24">
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/minimochi"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="105dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
 
 </RelativeLayout>
