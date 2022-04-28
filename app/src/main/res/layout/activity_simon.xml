@@ -1,79 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#3d3d3d" >
 
-    <Button
-        android:id="@+id/b2"
-        android:layout_width="199dp"
-        android:layout_height="256dp"
-        android:layout_alignTop="@+id/b1"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        android:backgroundTint="#3D5AFE"
-        android:minWidth="150dp"
-        android:minHeight="150dp"
-        android:text="2"
-        android:textSize="40sp" />
 
     <Button
         android:id="@+id/b3"
-        android:layout_width="206dp"
-        android:layout_height="244dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginBottom="133dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="140dp"
         android:backgroundTint="#FFEA00"
-        android:minWidth="150dp"
-        android:minHeight="150dp"
         android:text="3"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/b4"
-        android:layout_width="203dp"
-        android:layout_height="245dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="-1dp"
-        android:layout_marginRight="-1dp"
-        android:layout_marginBottom="132dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="140dp"
         android:backgroundTint="#00E617"
-        android:minWidth="150dp"
-        android:minHeight="150dp"
         android:text="4"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/b2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="#3D5AFE"
+        android:text="2"
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.862"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.515" />
 
     <Button
         android:id="@+id/b1"
-        android:layout_width="207dp"
-        android:layout_height="256dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="262dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:backgroundTint="#E13A05"
-        android:minWidth="150dp"
-        android:minHeight="150dp"
         android:text="1"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.515" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -127,11 +135,13 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="324dp"
-        android:layout_marginTop="803dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="32dp"
         android:background="#76FF03"
         android:backgroundTint="#76FF03"
-        android:src="@drawable/ic_baseline_play_arrow_24">
+        android:src="@drawable/ic_baseline_play_arrow_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
@@ -141,24 +151,38 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="802dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="32dp"
         android:backgroundTint="#D80606"
-        android:src="@drawable/ic_baseline_keyboard_return_24">
+        android:src="@drawable/ic_baseline_keyboard_return_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
     </com.google.android.material.floatingactionbutton.FloatingActionButton>
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/minimochi"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="186dp"
+        android:layout_height="207dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="105dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="132dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/cartel"
+        android:layout_width="210dp"
+        android:layout_height="206dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.923"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.197"
+        app:srcCompat="@drawable/cartelnormal" />
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
