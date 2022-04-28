@@ -75,24 +75,19 @@ public class simon  extends AppCompatActivity {
     }
 
     public void newrandom(){
-        Random random = new Random(); int i1 = (random.nextInt(4) + 1);
-        nums[n] = random.nextInt();
-        n++;
-
+        Random random = new Random(); int i1 = (random.nextInt(4));
+        nums[n] = 4;
+        punts.setText(" "+ nums[n]);
         for(int i=0; i==n;i++){
             new CountDownTimer(3000, 1000) {
 
                 public void onTick(long millisUntilFinished) {
-                    if(nums[i] == 1){
-
-                    } else if (nums[i == 2){
-
-                    }
+                    color();
                 }
 
                 @Override
                 public void onFinish() {
-
+                    cartel.setImageResource(R.drawable.cartelnormal);
                 }
             }.start();
         }
@@ -108,6 +103,8 @@ public class simon  extends AppCompatActivity {
             cartel.setImageResource(R.drawable.cartelyellow);
         }else if (nums[n] == 4){
             cartel.setImageResource(R.drawable.cartelgreen);
+        }else {
+            cartel.setImageResource(R.drawable.cartelnormal);
         }
     }
 
