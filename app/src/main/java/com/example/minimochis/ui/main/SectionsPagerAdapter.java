@@ -12,6 +12,7 @@ import com.example.minimochis.Chat;
 import com.example.minimochis.Home;
 import com.example.minimochis.Jocs;
 import com.example.minimochis.MapsFragment;
+import com.example.minimochis.Podometer;
 import com.example.minimochis.R;
 
 /**
@@ -37,7 +38,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
                 fragment = new Home();
                 break;
             case 1:
-                fragment = new MapsFragment();
+                fragment = new Podometer();
                 break;
             case 2:
                 fragment = new Jocs();
