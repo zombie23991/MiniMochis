@@ -17,9 +17,12 @@
         <entry key="..\:/Users/adria/AndroidStudioProjects/MiniMochis/app/src/main/res/layout/msn_user.xml" value="0.264" />
         <entry key="..\:/Users/adria/AndroidStudioProjects/MiniMochis/app/src/main/res/layout/opcions_layout.xml" value="0.2" />
         <entry key="..\:/Users/adria/AndroidStudioProjects/MiniMochis/app/src/main/res/layout/user_msg.xml" value="0.264" />
+        <entry key="..\:/Users/alber/Desktop/CFGS/2n Curs/MiniMochis/app/src/main/res/drawable/exit.xml" value="0.1" />
+        <entry key="..\:/Users/alber/Desktop/CFGS/2n Curs/MiniMochis/app/src/main/res/drawable/ic_baseline_music_note_24.xml" value="0.1" />
         <entry key="..\:/Users/alber/Desktop/CFGS/2n Curs/MiniMochis/app/src/main/res/layout/activitat_layout.xml" value="0.25" />
         <entry key="..\:/Users/alber/Desktop/CFGS/2n Curs/MiniMochis/app/src/main/res/layout/activity_chat.xml" value="0.25" />
         <entry key="..\:/Users/alber/Desktop/CFGS/2n Curs/MiniMochis/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/alber/Desktop/CFGS/2n Curs/MiniMochis/app/src/main/res/layout/activity_main.xml" value="0.13703703703703704" />
         <entry key="..\:/Users/alber/Desktop/CFGS/2n Curs/MiniMochis/app/src/main/res/layout/activity_maps.xml" value="0.234375" />
         <entry key="..\:/Users/alber/Desktop/CFGS/2n Curs/MiniMochis/app/src/main/res/layout/activity_memory_game.xml" value="0.234375" />
         <entry key="..\:/Users/alber/Desktop/CFGS/2n Curs/MiniMochis/app/src/main/res/layout/activity_registre.xml" value="0.25" />
@@ -32,6 +35,8 @@
         <entry key="..\:/Users/alber/Desktop/CFGS/2n Curs/MiniMochis/app/src/main/res/layout/layout_podometro.xml" value="0.1" />
         <entry key="..\:/Users/alber/Desktop/CFGS/2n Curs/MiniMochis/app/src/main/res/layout/opcions_layout.xml" value="0.234375" />
         <entry key="..\:/Users/alber/Desktop/CFGS/2n Curs/MiniMochis/app/src/main/res/layout/popit.xml" value="0.234375" />
+        <entry key="..\:/Users/alber/Desktop/CFGS/2n Curs/MiniMochis/app/src/main/res/layout/settings.xml" value="0.2111111111111111" />
+        <entry key="..\:/Users/alber/Desktop/CFGS/2n Curs/MiniMochis/app/src/main/res/layout/user_msg.xml" value="0.25" />
         <entry key="..\:/Users/marpo/Desktop/Aplicacions/CFGS/Segon Curs/MP15 Projectes DUAL/Projecte 4 MiniMochis/MiniMochis/app/src/main/res/layout/activity_login.xml" value="0.14375" />
         <entry key="..\:/Users/marpo/Desktop/Aplicacions/CFGS/Segon Curs/MP15 Projectes DUAL/Projecte 4 MiniMochis/MiniMochis/app/src/main/res/layout/activity_registre.xml" value="0.14375" />
       </map>
