@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/exit" />
+            app:srcCompat="@drawable/ic_baseline_exit_to_app_24" />
 
     </LinearLayout>
 
