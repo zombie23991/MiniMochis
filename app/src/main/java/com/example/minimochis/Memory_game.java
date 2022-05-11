@@ -8,6 +8,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,7 +20,8 @@ import java.util.Random;
 public class Memory_game extends AppCompatActivity {
 
     Drawable iconaDefecte;
-    ImageView carta1, carta2, carta3, carta4, carta5, carta6, carta7, carta8, carta9, carta10, carta11, carta12;
+    ImageView carta1, carta2, carta3, carta4, carta5, carta6, carta7, carta8, carta9, carta10, carta11, carta12, imatgeTocada1, imatgeTocada2;
+    Integer imatgeTocada = 0;
 
     ArrayList<Integer> imatges = new ArrayList<Integer>();
     ArrayList<ImageView> cartes = new ArrayList<ImageView>();
@@ -39,10 +41,8 @@ public class Memory_game extends AppCompatActivity {
         cartes.add(carta9 = findViewById(R.id.carta9)); cartes.add(carta10 = findViewById(R.id.carta10));
         cartes.add(carta11 = findViewById(R.id.carta11)); cartes.add(carta12 = findViewById(R.id.carta12));
 
-        // Es posa la mateixa imatge per defecte (Id de drawable) a totes les cartes
-        for(ImageView imgCarta : cartes) {
-            imgCarta.setImageDrawable(iconaDefecte);
-        }
+        // Es posa la mateixa imatge per defecte (Amb el mateix Id) a totes les cartes
+        setImatgeDefecte();
 
         imatges.add(R.drawable.croqueta1); imatges.add(R.drawable.croqueta2); imatges.add(R.drawable.croqueta3);
         imatges.add(R.drawable.croqueta4); imatges.add(R.drawable.croqueta5); imatges.add(R.drawable.croqueta6);
@@ -50,19 +50,50 @@ public class Memory_game extends AppCompatActivity {
         //random.nextInt(max - min + 1) + min
 
         establirImatgesRandom();
+        setImatgeDefecte();
 
         for(ImageView carta : cartes) {
-            carta.setImageResource(R.drawable.iconominimochi);
-
             carta.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    carta.setImageResource(R.drawable.croqueta1);//amagarImatges.get(cartes.indexOf(carta));
+                    carta.setImageResource(Integer.parseInt(amagarImatges.get(cartes.indexOf(carta)).getTag().toString()));
+                    imatgeTocada++;
+
+                    if(imatgeTocada == 1){
+                        imatgeTocada1 = carta;
+                    } else if (imatgeTocada == 2){
+                        imatgeTocada2 = carta;
+                    }
+
+                    if(imatgeTocada == 2) {
+                        if(!compararImatges(imatgeTocada1.getDrawable(), imatgeTocada2.getDrawable())){
+                            for(ImageView imatge : cartes) {
+                                imatge.setClickable(false);
+                            }
+
+                            final Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    imatgeTocada1.setImageResource(R.drawable.iconominimochi);
+                                    imatgeTocada2.setImageResource(R.drawable.iconominimochi);
+
+                                    for(ImageView imatge : cartes) {
+                                        imatge.setClickable(true);
+                                    }
+                                }
+                            }, 1500);
+                        }
+                        imatgeTocada = 0;
+                    }
                 }
             });
         }
+
+
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     public void establirImatgesRandom(){
         Random rn = new Random();
         int numAleatori;
@@ -74,14 +105,13 @@ public class Memory_game extends AppCompatActivity {
             // la imatge
             Drawable imatgeRandom = cartes.get(numAleatori).getDrawable();
 
-            // Només hi ha 6 imatges que s'han de repetir, per tant comprovem que no es passi del límit
-            if(posImatges > 5) {
-                posImatges = 0;
-            }
+            // Només hi ha 6 imatges que s'han de repetir
+            posImatges = rn.nextInt(5 + 1);
             // Comprovem si la imatge random té la imatge per defecte assignada (Està buida) i
             // si està repetida més de dos cops
             if(imatgeRandom == iconaDefecte && !comprovarRepetit(getResources().getDrawable(imatges.get(posImatges)))) {
                 cartes.get(numAleatori).setImageResource(imatges.get(posImatges));
+                cartes.get(numAleatori).setTag(imatges.get(posImatges));
                 amagarImatges.add(cartes.get(numAleatori));
             }
             posImatges++;
@@ -89,14 +119,12 @@ public class Memory_game extends AppCompatActivity {
     }
 
     public boolean comprovarRepetit(Drawable imatgeComprovar){
-        Bitmap bmImatgeComprovar = ((BitmapDrawable)imatgeComprovar).getBitmap();
-        Bitmap bmImatgeExistent;
+
         boolean repetida = false;
         int contador = 0;
 
         for (ImageView imatge : cartes) {
-            bmImatgeExistent = ((BitmapDrawable)imatge.getDrawable()).getBitmap();
-            if(bmImatgeComprovar == bmImatgeExistent) {
+            if(compararImatges(imatge.getDrawable(), imatgeComprovar)) {
                 contador++;
             }
         }
@@ -118,6 +146,25 @@ public class Memory_game extends AppCompatActivity {
         }
 
         return arrayPle;
+    }
+
+    public void setImatgeDefecte(){
+        for(ImageView imgCarta : cartes) {
+            imgCarta.setImageDrawable(iconaDefecte);
+        }
+    }
+
+    public boolean compararImatges(Drawable imatgeComparar1, Drawable imatgeComparar2){
+        boolean iguals = false;
+
+        Bitmap bmImatgeComparar1 = ((BitmapDrawable)imatgeComparar1).getBitmap();
+        Bitmap bmImatgeComparar2 = ((BitmapDrawable)imatgeComparar2).getBitmap();
+
+        if(bmImatgeComparar1 == bmImatgeComparar2) {
+            iguals = true;
+        }
+
+        return iguals;
     }
 
 }
