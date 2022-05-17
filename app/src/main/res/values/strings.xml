@@ -9,4 +9,5 @@
     <string name="Registrar">Registrar</string>
     <string name="tab_text_4">Chat</string>
     <string name="tab_text_5">Opcions</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

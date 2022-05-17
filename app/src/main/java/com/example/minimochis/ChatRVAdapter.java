@@ -54,7 +54,6 @@ public class ChatRVAdapter extends RecyclerView.Adapter {
     ChatModal chat = chatsArrayList.get(position);
     switch (chat.getSender()) {
         case "user" :
-
             ((UserViewHolder)holder).userTV.setText(chat.getMessage());
             break;
         case"bot" :

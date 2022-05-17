@@ -8,7 +8,6 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
-import retrofit2.http.Url;
 
 public interface InterficieEndpoints {
     // Request method and URL specified in the annotation
@@ -21,6 +20,6 @@ public interface InterficieEndpoints {
 
     @POST("usuaris")
     Call<Usuari> createUser(@Body Usuari usuari);
-    @GET
-    Call<MsgModal> getMessage(@Url String url);
+
+    Call<MsgModal> getMessage(String url);
 }

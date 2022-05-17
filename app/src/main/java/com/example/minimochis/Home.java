@@ -2,12 +2,14 @@ package com.example.minimochis;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,7 +23,12 @@ import pl.droidsonroids.gif.GifImageView;
 public class Home extends Fragment {
     FloatingActionButton eleccio_minimochi, options;
     GifImageView minimochji;
+    MediaPlayer mp;
+    boolean isChecked=true;
+    ImageView music;
 
+
+    FloatingActionButton buttonoptions;
     public personatge personatge = new personatge (0);
 
     //Dialog per obrir
@@ -37,8 +44,14 @@ public class Home extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState){
         //Botons
+
+        mp = MediaPlayer.create(getContext(), R.raw.fons);
+        mp.start();
+
         options = getView().findViewById(R.id.options);
         eleccio_minimochi = getView().findViewById(R.id.eleccio_minimochi);
+        buttonoptions = getView().findViewById(R.id.options);
+
 
         //GIF
         minimochji = getView().findViewById(R.id.minimochi);
@@ -63,13 +76,7 @@ public class Home extends Fragment {
         }
 
         //Intent de fragment de botons (Boto de opcions i eleccio de minimochi)
-        options.setOnClickListener(new  View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                Intent intent = new Intent(getActivity(), Opcions.class);
-                startActivity(intent);
-            }
-        });
+
         eleccio_minimochi.setOnClickListener(new  View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -77,6 +84,56 @@ public class Home extends Fragment {
             }
         });
 
+        buttonoptions.setOnClickListener(new  View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                Settings();
+            }
+        });
+
+    }
+
+
+    private void Settings(){
+        FloatingActionButton sortir;
+        miDialog.setContentView(R.layout.settings);
+        miDialog.setCanceledOnTouchOutside(false);
+        miDialog.setCancelable(false);
+
+        music = miDialog.findViewById(R.id.Song);
+
+
+        music.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isChecked) {
+                    isChecked = false;
+                    if (!mp.isPlaying()) {
+                        music.setImageResource(R.drawable.ic_baseline_music_note_24);
+                        mp.start();
+                    }
+                } else {
+                    isChecked = true;
+                    if (mp.isPlaying()) {
+                        music.setImageResource(R.drawable.musicof);
+                        mp.pause();
+                    }
+                }
+            }
+        });
+
+        //Botons
+        sortir = miDialog.findViewById(R.id.sortir);
+
+        sortir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                miDialog.dismiss();
+            }
+        });
+        //Per poder veure quin minimochi tenim seleccionat
+
+        miDialog.show();
     }
 
     private void ElegirMinimochi(){
