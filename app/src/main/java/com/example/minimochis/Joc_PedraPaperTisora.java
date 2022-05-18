@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -48,7 +49,7 @@ public class Joc_PedraPaperTisora extends AppCompatActivity {
     public void onClick(View view) {
 
         if (view.getId() == R.id.BtnSalir) {
-            Intent intent = new Intent(this, Login.class);
+            Intent intent = new Intent(this, Menu.class);
             startActivity(intent);
             finish();
         } else if (view.getId() == R.id.Piedra) {
@@ -136,7 +137,7 @@ public class Joc_PedraPaperTisora extends AppCompatActivity {
             finish();
         } else if (scoreComputer == 3) {
             Toast.makeText(this, "¡Lo siento perdistes ! " + nom_jugador + ". gano tu MiniMochi!.  Score: " + scoreComputer, Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(this, Login.class);
+            Intent intent = new Intent(this, Menu.class);
             startActivity(intent);
             finish();
         }
