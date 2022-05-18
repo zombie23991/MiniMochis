@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MemoryGame"
     tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="-11dp">
+    tools:layout_editor_absoluteY="-11dp"
+    android:background="@color/blau">
 
     <ImageView
         android:id="@+id/carta11"

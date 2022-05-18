@@ -63,7 +63,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="243dp"
                 android:layout_height="match_parent"
-                android:text="Memori"
+                android:text="Memory"
                 android:textSize="32sp" />
 
         </LinearLayout>
