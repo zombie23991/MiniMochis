@@ -93,7 +93,7 @@
                 android:id="@+id/txPunts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Puntuacion:"
+                android:text="Nivel:"
                 android:textColor="#eee"
                 android:textSize="34sp" />
 
@@ -115,7 +115,7 @@
                 android:id="@+id/txNivel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nivel:"
+                android:text="Puntuacion:"
                 android:textColor="#eee"
                 android:textSize="28sp" />
 
