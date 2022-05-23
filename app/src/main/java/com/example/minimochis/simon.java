@@ -4,6 +4,7 @@ package com.example.minimochis;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -33,6 +34,7 @@ public class simon  extends AppCompatActivity {
     private ImageView cartel;
 
     public ArrayList<Integer> miArreglo = new ArrayList<Integer>();
+    public ArrayList<Integer> sequencia = new ArrayList<Integer>();
 
     //Variables
     int pas= 0;
@@ -76,17 +78,19 @@ public class simon  extends AppCompatActivity {
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                newrandom();
                 viu = true;
+                newrandom();
+
             }
         });
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (viu == true){
+                if (viu){
                 jugacorclick = 1;
-                comprobar();} else {
+                comprobar();
+                } else {
                     Toast toast1 =
                             Toast.makeText(getApplicationContext(),
                                     "Per jugar donali al boto PLAY", Toast.LENGTH_SHORT);
@@ -99,9 +103,10 @@ public class simon  extends AppCompatActivity {
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (viu == true){
+                if (viu){
                     jugacorclick = 2;
-                    comprobar();} else {
+                    comprobar();
+                } else {
                     Toast toast1 =
                             Toast.makeText(getApplicationContext(),
                                     "Per jugar donali al boto PLAY", Toast.LENGTH_SHORT);
@@ -114,9 +119,10 @@ public class simon  extends AppCompatActivity {
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (viu == true){
+                if (viu){
                     jugacorclick = 3;
-                    comprobar();} else {
+                    comprobar();
+                } else {
                     Toast toast1 =
                             Toast.makeText(getApplicationContext(),
                                     "Per jugar donali al boto PLAY", Toast.LENGTH_SHORT);
@@ -129,9 +135,10 @@ public class simon  extends AppCompatActivity {
         b4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (viu == true){
+                if (viu){
                     jugacorclick = 4;
-                    comprobar();} else {
+                    comprobar();
+                } else {
                     Toast toast1 =
                             Toast.makeText(getApplicationContext(),
                                     "Per jugar donali al boto PLAY", Toast.LENGTH_SHORT);
@@ -143,49 +150,43 @@ public class simon  extends AppCompatActivity {
 
     }
 
-    public void lvl() {
-        if (torn == pas) {
-            pas++;
-            newrandom();
-        } else if(torn != pas){
-            torn++;
-
-        }
-    }
-
     public void newrandom(){
-        int n;
-        Random random = new Random(); int i1 = random.nextInt(4 - 1)+1;;
-        miArreglo.add(i1);
+        sequencia.clear();
+        Random random = new Random();
+
+        for (int i = 0; i <= pas; i++){
+            int i1 = random.nextInt(4 - 1)+1;
+            sequencia.add(i1);
+        }
+
         nivell.setText(" "+ (pas));
         color();
     }
 
     public void color(){
-        for(int secuencia = 0; secuencia == pas; secuencia++) {
+        for(int secuencia : sequencia) {
             punch();
-            if (miArreglo.get(secuencia) == 1) {
+
+            if (secuencia == 1) {
                 cartel.setImageResource(R.drawable.cartelred);
-            } else if (miArreglo.get(secuencia) == 2) {
+            } else if (secuencia == 2) {
                 cartel.setImageResource(R.drawable.cartelblue);
-            } else if (miArreglo.get(secuencia) == 3) {
+            } else if (secuencia == 3) {
                 cartel.setImageResource(R.drawable.cartelyellow);
-            } else if (miArreglo.get(secuencia) == 4) {
+            } else if (secuencia == 4) {
                 cartel.setImageResource(R.drawable.cartelgreen);
-            } else {
-                cartel.setImageResource(R.drawable.cartelnormal);
             }
+
             new CountDownTimer(2000, 50) {
 
-                public void onTick(long millisUntilFinished) {
-                }
+                public void onTick(long millisUntilFinished) {}
 
                 public void onFinish() {
                     cartel.setImageResource(R.drawable.cartelnormal);
                 }
             }.start();
-        }
 
+        }
     }
 
     public void punch(){
@@ -201,17 +202,24 @@ public class simon  extends AppCompatActivity {
     }
 
     public void comprobar(){
+        Log.e("Hola ", "" + torn);
 
-            if (jugacorclick == miArreglo.get(torn)) {
+            if (jugacorclick == sequencia.get(torn)) {
                 puntstotal++;
                 punts.setText(" "+ puntstotal);
-                lvl();
-            } else if (jugacorclick != miArreglo.get(torn)){
+                torn++;
+                //lvl();
+            } else if (jugacorclick != sequencia.get(torn)){
+                Toast toast1 =
+                        Toast.makeText(getApplicationContext(),
+                                "Muelto", Toast.LENGTH_SHORT);
+
+                toast1.show();
+
                 gameover();
             }
-
         pas++;
-        newrandom();
+        //newrandom();
     }
 
     public void gameover(){
