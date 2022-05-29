@@ -62,7 +62,7 @@ public class popit extends AppCompatActivity {
         blue3 = findViewById(R.id.blue3);
 
         //Puntuacio i temps
-        punts = findViewById(R.id.punts);
+        punts = findViewById(R.id.nivell);
         temps = findViewById(R.id.temps);
 
         //Gif Minimochi
