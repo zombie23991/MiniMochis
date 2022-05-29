@@ -13,9 +13,6 @@
         android:theme="@style/Theme.MiniMochis"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
             android:name=".MemoryGame"
             android:exported="false" />
         <activity
@@ -32,6 +29,11 @@
             android:label="@string/app_name"
             android:theme="@style/Theme.MiniMochis.NoActionBar" />
         <activity
+            android:name=".simon"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.MiniMochis.NoActionBar" />
+        <activity
             android:name=".Login"
             android:exported="true"
             android:label="@string/app_name"
@@ -40,17 +42,12 @@
             android:name=".Joc_PedraPaperTisora"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.MiniMochis.NoActionBar"/>
-        <activity
-            android:name=".Joc_PedraPaperTisora"
-            android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.MiniMochis.NoActionBar" />
         <activity
-            android:name=".simon"
+            android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.MiniMochis.NoActionBar" >
+            android:theme="@style/Theme.MiniMochis.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -161,7 +161,7 @@ public class Registre extends AppCompatActivity {
                     String correuExistent = usuaris.get(pos).getCorreu();
                     String contrassenyaExistent = usuaris.get(pos).getContrassenya();
                     boolean existeix = false;
-
+                    Log.d(TAG, "1" + existeix);
                     if(nomUsuari.equals(nomUsuariExistent)){
                         existeix = true;
                         Toast.makeText(Registre.this, "El nom d'usuari introduït ja existeix", Toast.LENGTH_LONG).show();
