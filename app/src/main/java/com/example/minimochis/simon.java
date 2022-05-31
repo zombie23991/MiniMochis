@@ -37,7 +37,7 @@ public class simon  extends AppCompatActivity {
     public ArrayList<Integer> sequencia = new ArrayList<Integer>();
 
     //Variables
-    int clickJugador, puntstotal = 0, posSequencia = 0, nNivell = 1;
+    int clickJugador, puntstotal = 0, posSequencia = 0, nNivell = 1, limitSequencia = 1;
     boolean viu = false;
 
     @Override
@@ -158,68 +158,73 @@ public class simon  extends AppCompatActivity {
             sequencia.add(i1);
         }
 
-        color();
+        color(0);
     }
 
-    public void color(){
-        for(int secuencia : sequencia) {
-            punch();
-            if (secuencia == 1) {
-                cartel.setImageResource(R.drawable.cartelred);
-            } else if (secuencia == 2) {
-                cartel.setImageResource(R.drawable.cartelblue);
-            } else if (secuencia == 3) {
-                cartel.setImageResource(R.drawable.cartelyellow);
-            } else if (secuencia == 4) {
-                cartel.setImageResource(R.drawable.cartelgreen);
-            }
-
-            final Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    // Do something after 1s = 1000ms
-                    cartel.setImageResource(R.drawable.cartelnormal);
-                }
-            }, 1000);
+    public void color(int posSequencia){
+        punch();
+        if (sequencia.get(posSequencia) == 1) {
+            cartel.setImageResource(R.drawable.cartelred);
+        } else if (sequencia.get(posSequencia) == 2) {
+            cartel.setImageResource(R.drawable.cartelblue);
+        } else if (sequencia.get(posSequencia) == 3) {
+            cartel.setImageResource(R.drawable.cartelyellow);
+        } else if (sequencia.get(posSequencia) == 4) {
+            cartel.setImageResource(R.drawable.cartelgreen);
         }
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Do something after 1s = 1000ms
+                cartel.setImageResource(R.drawable.cartelnormal);
+            }
+        }, 2000);
+
     }
 
     public void punch(){
         minimochi.setImageResource(R.drawable.minimochi_rosa_punch);
-        new CountDownTimer( 1000, 50 ) {
 
-            public void onTick(long millisUntilFinished) {
-            }
-            public void onFinish() {
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Do something after 1s = 1000ms
                 minimochi.setImageResource(R.drawable.minimochirosa);
             }
-        }.start();
+        }, 1000);
     }
 
     public void comprobar(){
-        if(posSequencia < sequencia.size()) {
+        if(posSequencia <= sequencia.size()-1) {
             if (clickJugador == sequencia.get(posSequencia)) {
                 puntstotal++;
                 punts.setText(String.valueOf(puntstotal));
-                posSequencia++;
+                limitSequencia++;
+
+                if (limitSequencia > sequencia.size()) {
+                    nNivell++;
+                    posSequencia = 0;
+                    limitSequencia = 1;
+                    newrandom();
+                } else {
+                    posSequencia++;
+                    color(posSequencia);
+                }
+
             } else {
                 gameover();
             }
         }
-
-        if(posSequencia >= sequencia.size()) {
-            nNivell++;
-            posSequencia = 0;
-            newrandom();
-        }
-
     }
 
     public void gameover(){
         viu = false;
         nivell.setText(String.valueOf(0));
         posSequencia = 0;
+        limitSequencia = 0;
         sequencia.clear();
         clickJugador = 0;
         nNivell = 1;

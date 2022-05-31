@@ -15,8 +15,8 @@ public interface InterficieEndpoints {
     @GET("usuaris")
     Call<List<Usuari>> getLlistaUsuaris();
 
-    @GET("usuaris/{nom_usuari}")
-    Call<Usuari> getUser(@Path("nom_usuari") String nom_usuari);
+    @POST("login")
+    Call<Usuari> getUser(@Body Usuari usuari);
 
     @POST("usuaris")
     Call<Usuari> createUser(@Body Usuari usuari);

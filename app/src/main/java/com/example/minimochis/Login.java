@@ -3,6 +3,7 @@ package com.example.minimochis;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -108,7 +109,33 @@ public class Login extends AppCompatActivity {
     }
 
    public void loginJugador(String nomUsuari, String contrassenya){
-        Call<Usuari> cridaLogin = clientApi.connectarApi().getUser(nomUsuari);
+       Usuari login = new Usuari(nomUsuari, contrassenya);
+       Call<Usuari> crida = clientApi.connectarApi().getUser(login);
+
+       crida.enqueue(new Callback<Usuari>() {
+           @Override
+           public void onResponse(Call<Usuari> call, Response<Usuari> resposta) {
+               Usuari usuariResposta = resposta.body();
+
+               if (usuariResposta != null && usuariResposta.getNomUsuari() != null && usuariResposta.getContrassenya() != null) {
+                   Intent iniciarLogin = new Intent(Login.this, MainActivity.class);
+                   startActivity(iniciarLogin);
+                   Toast.makeText(Login.this, "Benvingut " + usuariResposta.getNomUsuari(), Toast.LENGTH_LONG).show();
+               } else {
+                   Toast.makeText(Login.this, "El nom d'usuari o la contrassenya són incorrectes "
+                           + usuariResposta.getNomUsuari(), Toast.LENGTH_LONG).show();
+               }
+           }
+
+           @Override
+           public void onFailure(Call<Usuari> call, Throwable t) {
+               Toast.makeText(getApplicationContext(), "onFailure called ", Toast.LENGTH_SHORT).show();
+               Log.e("Error:", ""+ t.getLocalizedMessage());
+               call.cancel();
+           }
+       });
+
+       /*Call<Usuari> cridaLogin = clientApi.connectarApi().getUser(nomUsuari);
         cridaLogin.enqueue(new Callback<Usuari>() {
             @Override
             public void onResponse(Call<Usuari> call, Response<Usuari> response) {
@@ -131,7 +158,7 @@ public class Login extends AppCompatActivity {
             public void onFailure(Call<Usuari> call, Throwable t) {
                 Toast.makeText(Login.this, t.getLocalizedMessage() + " ", Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
 
 
     }
