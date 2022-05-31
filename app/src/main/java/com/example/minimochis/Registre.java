@@ -156,23 +156,23 @@ public class Registre extends AppCompatActivity {
             public void onResponse(Call<List<Usuari>> call, Response<List<Usuari>> response) {
                 List<Usuari> usuaris = response.body();
 
-                for(int pos = 0; pos < usuaris.size(); pos++) {
-                    String nomUsuariExistent = usuaris.get(pos).getNomUsuari();
-                    String correuExistent = usuaris.get(pos).getCorreu();
-                    String contrassenyaExistent = usuaris.get(pos).getContrassenya();
-                    boolean existeix = false;
-
-                    if(nomUsuari.equals(nomUsuariExistent)){
-                        existeix = true;
-                        Toast.makeText(Registre.this, "El nom d'usuari introduït ja existeix", Toast.LENGTH_LONG).show();
-                    } else if (correu.equals(correuExistent)) {
-                        existeix = true;
-                        Toast.makeText(Registre.this, "El correu introduït ja existeix", Toast.LENGTH_LONG).show();
-                    } else if (contrassenya.equals(contrassenyaExistent)){
-                        existeix = true;
-                        Toast.makeText(Registre.this, "La contrassenya introduïda ja existeix", Toast.LENGTH_LONG).show();
-                    }
-
+                if(usuaris.size() > 0) {
+                    for(int pos = 0; pos < usuaris.size(); pos++) {
+                        String nomUsuariExistent = usuaris.get(pos).getNomUsuari();
+                        String correuExistent = usuaris.get(pos).getCorreu();
+                        String contrassenyaExistent = usuaris.get(pos).getContrassenya();
+                        boolean existeix = false;
+                        Log.d(TAG, "1" + existeix);
+                        if(nomUsuari.equals(nomUsuariExistent)){
+                            existeix = true;
+                            Toast.makeText(Registre.this, "El nom d'usuari introduït ja existeix", Toast.LENGTH_LONG).show();
+                        } else if (correu.equals(correuExistent)) {
+                            existeix = true;
+                            Toast.makeText(Registre.this, "El correu introduït ja existeix", Toast.LENGTH_LONG).show();
+                        } else if (contrassenya.equals(contrassenyaExistent)){
+                            existeix = true;
+                            Toast.makeText(Registre.this, "La contrassenya introduïda ja existeix", Toast.LENGTH_LONG).show();
+                        }
                     if(existeix) {
                         etNomUsuariRegistre.setText(null);
                         etCorreuRegistre.setText(null);
@@ -184,9 +184,10 @@ public class Registre extends AppCompatActivity {
                     /*Snackbar.make(findViewById(R.id.textView),
                             "El nom d'usuari introduït ja existeix",
                             BaseTransientBottomBar.LENGTH_LONG).show(); */
+                    }
+                } else {
+                    registrarJugador(nomUsuari, correu, contrassenya);
                 }
-
-
             }
 
             @Override

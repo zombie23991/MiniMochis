@@ -36,6 +36,7 @@ public class Login extends AppCompatActivity {
 
     InterficieEndpoints serveiApi;
 
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,7 +151,7 @@ public class Login extends AppCompatActivity {
                                 Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(Login.this, "L'usuari no existeix" + response, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "L'usuari no existeix", Toast.LENGTH_SHORT).show();
                 }
             }
 

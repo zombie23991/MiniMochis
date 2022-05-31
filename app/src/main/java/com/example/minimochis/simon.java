@@ -184,19 +184,20 @@ public class simon  extends AppCompatActivity {
 
     }
 
-    public void punch(){
+    public void punch() {
         minimochi.setImageResource(R.drawable.minimochi_rosa_punch);
 
         final Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
+        handler.postDelayed(new
+
+        Runnable() {
             @Override
-            public void run() {
+            public void run () {
                 // Do something after 1s = 1000ms
                 minimochi.setImageResource(R.drawable.minimochirosa);
             }
-        }, 1000);
+        },1000);
     }
-
     public void comprobar(){
         if(posSequencia <= sequencia.size()-1) {
             if (clickJugador == sequencia.get(posSequencia)) {
