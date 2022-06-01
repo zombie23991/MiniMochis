@@ -1,5 +1,7 @@
 package com.example.minimochis;
 
+import static com.example.minimochis.Login.usuariIniciat;
+
 import android.Manifest;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -23,6 +25,10 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.io.IOException;
+
+import retrofit2.Call;
 
 public class Podometer extends Fragment implements SensorEventListener {
 
@@ -51,7 +57,7 @@ public class Podometer extends Fragment implements SensorEventListener {
               isConuterSensorPresent = true;
          } else {
             textView.setText("Not Found");
-             isConuterSensorPresent = false;
+            isConuterSensorPresent = false;
          }
 
         if(ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACTIVITY_RECOGNITION) == PackageManager.PERMISSION_DENIED){ //ask for permission
@@ -67,6 +73,14 @@ public class Podometer extends Fragment implements SensorEventListener {
         if (sensorEvent.sensor == mStepCounter) {
             stepcounter = (int) sensorEvent.values[0];
             textView.setText(String.valueOf(stepcounter));
+            /*usuariIniciat.setPasos(stepcounter);
+            Call<Usuari> crida = clientApi.connectarApi().actualitzarInfo(usuariIniciat.getId(), usuariIniciat);
+
+            try {
+                crida.execute();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } */
         }
     }
 

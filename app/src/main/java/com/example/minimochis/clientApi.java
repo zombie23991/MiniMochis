@@ -12,7 +12,7 @@ public class clientApi {
         Gson gson = new GsonBuilder().setLenient().create();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:8000/api/")
+                .baseUrl("http://minimochisapi.bucisl.com/public/api/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
         return retrofit;

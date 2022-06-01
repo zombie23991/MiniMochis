@@ -36,6 +36,7 @@ public class Login extends AppCompatActivity {
 
     InterficieEndpoints serveiApi;
 
+    public static Usuari usuariIniciat;
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -119,6 +120,7 @@ public class Login extends AppCompatActivity {
                Usuari usuariResposta = resposta.body();
 
                if (usuariResposta != null && usuariResposta.getNomUsuari() != null && usuariResposta.getContrassenya() != null) {
+                   usuariIniciat = usuariResposta;
                    Intent iniciarLogin = new Intent(Login.this, MainActivity.class);
                    startActivity(iniciarLogin);
                    Toast.makeText(Login.this, "Benvingut " + usuariResposta.getNomUsuari(), Toast.LENGTH_LONG).show();

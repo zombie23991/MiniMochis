@@ -186,7 +186,6 @@ public class simon  extends AppCompatActivity {
 
     public void punch(){
         minimochi.setImageResource(R.drawable.minimochi_rosa_punch);
-        new CountDownTimer( 1000, 50 ) {
 
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

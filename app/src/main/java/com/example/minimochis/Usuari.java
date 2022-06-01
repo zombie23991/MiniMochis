@@ -43,4 +43,28 @@ public class Usuari {
     public int getNum_minimochi() {
         return num_minimochi;
     }
+
+    public void setPasos(int pasos) {
+        this.pasos = pasos;
+    }
+
+    public void setNum_minimochi(int num_minimochi) {
+        this.num_minimochi = num_minimochi;
+    }
+
+    public void setNom_usuari(String nom_usuari) {
+        this.nom_usuari = nom_usuari;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setLlistaUsuaris(List<Usuari> llistaUsuaris) {
+        this.llistaUsuaris = llistaUsuaris;
+    }
 }
